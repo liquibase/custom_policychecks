@@ -1,5 +1,7 @@
 # NoSelectStar
 
+Do not allow `SELECT *` statements.
+
 regex: `(?i:select \*)`
 
 # Sample Failing Scripts

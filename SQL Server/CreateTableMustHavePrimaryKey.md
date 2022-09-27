@@ -1,5 +1,7 @@
 # CreateTableMustHavePrimaryKey
 
+Every `CREATE TABLE` statement must also have a `PRIMARY KEY` included.
+
 regex: `(?is)(?=.*\b(create)\b)(?=.*\b(table)\b)(?!.*\b(primary)\b)(?!.*\b(key)\b).*`
 
 # Sample Passing Script

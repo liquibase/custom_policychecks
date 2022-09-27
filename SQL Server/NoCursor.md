@@ -1,5 +1,7 @@
 # NoCursor
 
+No statements with `CURSOR` allowed. 
+
 regex: `(?i:\scursor\s)`
 
 # Sample Failing Scripts
