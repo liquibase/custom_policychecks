@@ -1,4 +1,7 @@
-# Step-by-step
+# NoSelectStar
+
+regex: `(?i:select \*)`
+## Step-by-step
 
 On CLI, type this command:
 
