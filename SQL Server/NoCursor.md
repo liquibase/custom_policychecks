@@ -31,7 +31,8 @@ BEGIN
 END 
 
 CLOSE db_cursor  
-DEALLOCATE db_cursor```
+DEALLOCATE db_cursor
+```
 
 # Sample Error Message
 ```
