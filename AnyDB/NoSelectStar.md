@@ -34,3 +34,14 @@ Set 'MESSAGE' [A match for regular expression <SEARCH_STRING> was detected in Ch
 Set 'STRIP_COMMENTS' (options: true, false) [true]:
 ```
 `true`
+
+# Sample Scripts
+```
+SELECT * FROM DATABASECHANGELOG;
+```
+```
+SELECT * from dbo.DATABASECHANGELOG;
+```
+```
+SELECT * from [dbo].[DATABASECHANGELOG];
+```
