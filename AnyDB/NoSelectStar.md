@@ -2,7 +2,17 @@
 
 regex: `(?i:select \*)`
 
-# Step-by-step
+# Sample Scripts
+```
+SELECT * FROM DATABASECHANGELOG;
+```
+```
+SELECT * from dbo.DATABASECHANGELOG;
+```
+```
+SELECT * from [dbo].[DATABASECHANGELOG];
+```
+# Step-by-Step
 
 On CLI, type this command:
 
@@ -35,13 +45,3 @@ Set 'STRIP_COMMENTS' (options: true, false) [true]:
 ```
 `true`
 
-# Sample Scripts
-```
-SELECT * FROM DATABASECHANGELOG;
-```
-```
-SELECT * from dbo.DATABASECHANGELOG;
-```
-```
-SELECT * from [dbo].[DATABASECHANGELOG];
-```
