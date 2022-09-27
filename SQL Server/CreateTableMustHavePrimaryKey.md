@@ -30,7 +30,7 @@ CHANGELOG CHECKS
 Checks completed validation of the changelog and found the following issues:
 
 Check Name:         Check for specific patterns in sql (CreateTableMustHavePrimaryKey)
-Changeset ID:       sales
+Changeset ID:       sales2
 Changeset Filepath: changeLogs/1_tables/01_createTable1.sql
 Check Severity:     INFO (Return code: 4)
 Message:            Error! CREATE TABLE statement must have a primary key
