@@ -1,8 +1,8 @@
 # NoGrantAll
 
-Do not allow `GRANT <Privilege Type> TO SYSTEM` statements.
+Do not allow `ALL` or `ALL PRIVILEGES` grants.
 
-regex: `(?i:grant)[\t\n\r\s\S]*(?i:to system)`
+PRIVILEGE_LIST: `ALL,"ALL PRIVILEGES"`
 
 # Sample Failing Scripts
 ```
