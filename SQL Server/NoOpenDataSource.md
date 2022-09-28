@@ -13,7 +13,7 @@ ORDER BY GroupName, Name;
 ```
 
 # Sample Error Message
-``` sql
+``` 
 CHANGELOG CHECKS
 ----------------
 Checks completed validation of the changelog and found the following issues:
