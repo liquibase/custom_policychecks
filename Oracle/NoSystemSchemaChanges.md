@@ -1,0 +1,34 @@
+# NoSystemSchemaChanges
+
+Do not allow changes to `SYSTEM` schema. 
+
+regex: `(?i:create|drop|alter)[\t\r\n\s]+(?i:system)[\t\r\n\s]+`
+
+# Sample Failing Scripts
+```
+ALTER SYSTEM SET ENCRYPTION WALLET CLOSE;
+ALTER SYSTEM FLUSH SHARED_POOL;
+```
+
+# Sample Error Message
+```
+CHANGELOG CHECKS
+----------------
+Checks completed validation of the changelog and found the following issues:
+
+Check Name:         Check for specific patterns in sql (NoSystemSchemaChanges)
+Changeset ID:       alter_system
+Changeset Filepath: changeLogs/1_tables/01_createTable1.sql
+Check Severity:     BLOCKER (Return code: 4)
+Message:            Error! Changes to SYSTEM schema no allowed.
+```
+
+# Step-by-Step
+| Prompt | Command or User Input |
+| ------ | ----------------------|
+| > | `liquibase checks customize --check-name=SqlUserDefinedPatternCheck` |
+| Give your check a short name for easier identification (up to 64 alpha-numeric characters only) [SqlUserDefinedPatternCheck1]: | `NoSystemSchemaChanges` |
+| Set the Severity to return a code of 0-4 when triggered. (options: 'INFO'=0, 'MINOR'=1, 'MAJOR'=2, 'CRITICAL'=3, 'BLOCKER'=4)? [INFO]: | `<Choose a value: 0, 1, 2, 3, 4>` |
+| Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?i:create\|drop\|alter)[\t\r\n\s]+(?i:system)[\t\r\n\s]+` |
+| Set 'MESSAGE' [A match for regular expression <SEARCH_STRING> was detected in Changeset <CHANGESET>.]: | `Error! Changes to SYSTEM schema not allowed.` |
+| Set 'STRIP_COMMENTS' (options: true, false) [true]: | `true` |
