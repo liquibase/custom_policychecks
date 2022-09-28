@@ -5,7 +5,7 @@ No statements with `OPENDATASOURCE` allowed.
 regex: `(?i:opendatasource)\s*\(`
 
 # Sample Failing Scripts
-```
+``` sql
 --changeset amalik:open_datasource
 SELECT GroupName, Name, DepartmentID  
 FROM OPENDATASOURCE('MSOLEDBSQL', 'Server=Seattle1;Database=AdventureWorks2016;TrustServerCertificate=Yes;Trusted_Connection=Yes;').HumanResources.Department  
@@ -13,7 +13,7 @@ ORDER BY GroupName, Name;
 ```
 
 # Sample Error Message
-```
+``` sql
 CHANGELOG CHECKS
 ----------------
 Checks completed validation of the changelog and found the following issues:

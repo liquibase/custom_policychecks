@@ -5,7 +5,7 @@ Every `ALTER TABLE` statement should be flagged.
 regex: `(?i:alter)[\t\r\n\s]+(?i:table)[\t\r\n\s]+`
 
 # Sample Failing Scripts
-```
+``` sql
 --changeset amalik:alter_sales
 ALTER TABLE dbo.sales
    ADD COUNTRY varchar(50);

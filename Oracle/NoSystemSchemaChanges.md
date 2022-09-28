@@ -5,7 +5,7 @@ Do not allow changes to `SYSTEM` schema.
 regex: `(?i:create|drop|alter)[\t\r\n\s]+(?i:system)[\t\r\n\s]+`
 
 # Sample Failing Scripts
-```
+``` sql
 ALTER SYSTEM SET ENCRYPTION WALLET CLOSE;
 ALTER SYSTEM FLUSH SHARED_POOL;
 ```

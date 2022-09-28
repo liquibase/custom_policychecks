@@ -5,7 +5,7 @@ Every `CREATE TABLE` statement must also have a `PRIMARY KEY` included.
 regex: `(?is)(?=.*\b(create)\b)(?=.*\b(table)\b)(?!.*\b(primary)\b)(?!.*\b(key)\b).*`
 
 # Sample Passing Script
-```
+``` sql
 --changeset amalik:sales1
 CREATE TABLE dbo.sales1 (
    ID int NOT NULL PRIMARY KEY,
@@ -15,7 +15,7 @@ CREATE TABLE dbo.sales1 (
 )
 ```
 # Sample Failing Scripts
-```
+``` sql
 --changeset amalik:sales2
 CREATE TABLE dbo.sales2 (
    ID int NOT NULL,

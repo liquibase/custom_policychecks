@@ -5,7 +5,7 @@ No statements with `CURSOR` allowed.
 regex: `(?i:\scursor\s)`
 
 # Sample Failing Scripts
-```
+``` sql
 --changeset amalik:cursor
 DECLARE @name VARCHAR(50) -- database name 
 DECLARE @path VARCHAR(256) -- path for backup files 

@@ -5,13 +5,13 @@ Do not allow `GRANT <Privilege Type> TO SYSTEM` statements.
 regex: `(?i:grant)[\t\n\r\s\S]*(?i:to system)`
 
 # Sample Failing Scripts
-```
+``` sql
 GRANT EXECUTE TO SYSTEM;
 ```
-```
+``` sql
 GRANT SELECT ON TABLE sales TO SYSTEM;
 ```
-```
+``` sql
 GRANT UPDATE, TRIGGER ON TABLE sales TO SYSTEM;
 ```
 

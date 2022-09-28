@@ -5,7 +5,7 @@ Every `CREATE TABLE` statement must also have a `PRIMARY KEY` included.
 regex: `(?is)(?=.*\b(create)\b)(?=.*\b(table)\b)(?!.*\b(primary)\b)(?!.*\b(key)\b).*`
 
 # Sample Passing Script
-```
+``` sql
 --changeset amalik:employee
 CREATE TABLE EMPLOYEE (
    EMPLOYEE_ID INT NOT NULL GENERATED ALWAYS AS IDENTITY	CONSTRAINT PEOPLE_PK PRIMARY KEY, 
@@ -22,7 +22,7 @@ CREATE TABLE COMPANY (
 );
 ```
 # Sample Failing Scripts
-```
+``` sql
 --changeset amalik:employee
 CREATE TABLE EMPLOYEE (
    EMPLOYEE_ID INT NOT NULL GENERATED ALWAYS AS IDENTITY	CONSTRAINT PEOPLE_PK, 

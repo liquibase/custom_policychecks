@@ -5,7 +5,7 @@ No statements with `EXEC` or `EXECUTE` allowed.
 regex: `(?i:exec\s|execute\s)\s*`
 
 # Sample Failing Scripts
-```
+``` sql
 --changeset amalik:execute_immediate
 DECLARE
    sql_stmt    VARCHAR2(200);

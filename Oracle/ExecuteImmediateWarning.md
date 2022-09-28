@@ -5,7 +5,7 @@ Warning on use of `EXECUTE IMMEDIATE` statements.
 regex: `[\t\n\r\s]*(?i:execute)[\t\n\r\s]*(?i:immediate\s)`
 
 # Sample Failing Scripts
-```
+``` sql
 --changeset amalik:execute_immediate
 DECLARE
    sql_stmt    VARCHAR2(200);

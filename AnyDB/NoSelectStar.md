@@ -5,13 +5,13 @@ Do not allow `SELECT *` statements.
 regex: `(?i:select \*)`
 
 # Sample Failing Scripts
-```
+``` sql
 SELECT * FROM DATABASECHANGELOG;
 ```
-```
+``` sql
 SELECT * from dbo.DATABASECHANGELOG;
 ```
-```
+``` sql
 SELECT * from [dbo].[DATABASECHANGELOG];
 ```
 

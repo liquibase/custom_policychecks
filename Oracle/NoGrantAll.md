@@ -5,7 +5,7 @@ Do not allow `ALL` or `ALL PRIVILEGES` grants.
 PRIVILEGE_LIST: `ALL,"ALL PRIVILEGES"`
 
 # Sample Failing Scripts
-```
+``` sql
 GRANT ALL PRIVILEGES TO user1;
 ```
 

@@ -5,7 +5,7 @@ No `CREATE TABLE` statements allowed except for creating temporary tables.
 regex: `(?i:create)[\t\r\n\s]+(?i:table)[\t\r\n\s]+[^#]+\s`
 
 # Sample Passing Script
-```
+``` sql
 --changeset amalik:sales1
 CREATE TABLE #sales1 (
    ID int NOT NULL PRIMARY KEY,
@@ -22,7 +22,7 @@ CREATE TABLE dbo.#sales22 (
 )
 ```
 # Sample Failing Scripts
-```
+``` sql
 --changeset amalik:sales2
 CREATE TABLE dbo.sales2 (
    ID int NOT NULL,

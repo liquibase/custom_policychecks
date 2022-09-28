@@ -5,13 +5,13 @@ Do not allow `GRANT <Privilege Type> TO PUBLIC` statements.
 regex: `(?i:grant)[\t\n\r\s\S]*(?i:to public)`
 
 # Sample Failing Scripts
-```
+``` sql
 GRANT EXECUTE TO PUBLIC;
 ```
-```
+``` sql
 GRANT SELECT ON TABLE sales TO PUBLIC;
 ```
-```
+``` sql
 GRANT UPDATE, TRIGGER ON TABLE sales TO PUBLIC;
 ```
 
