@@ -8,7 +8,7 @@ regex: `(?is)[\t\r\n\s]*\bcreate\b[\t\r\n\s]+.*\bprocedure\b[\t\r\n\s]+.*[\t\r\n
 # Sample Failing Scripts
 ``` sql
 --changeset amalik:Procedures_CustOrder
-CREATE OR REPLACE PROCEDURE ustOrderHist @CustomerID nchar(5)
+CREATE OR REPLACE PROCEDURE CustOrderHist @CustomerID nchar(5)
 AS
 SELECT ProductName, Total=SUM(Quantity)
 FROM Products P, [Order Details] OD, Orders O, Customers C
