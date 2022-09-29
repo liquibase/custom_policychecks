@@ -5,7 +5,7 @@ Quality Checks provided here are in addition to Quality Checks shipped with Liqu
 
 These quality checks are designed using regular expressions.
 
-# Usefule Liquibase Checks Commands
+# Useful Liquibase Checks Commands
 
 ## "checks show" command:
 `liquibase checks show`
