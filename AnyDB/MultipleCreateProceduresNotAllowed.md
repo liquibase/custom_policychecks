@@ -4,7 +4,6 @@ Multiple `CREATE PROCEDURE` statements not allowed in a changeset.
 
 regex: `(?is)[\t\r\n\s]*\bcreate\b[\t\r\n\s]+.*\bprocedure\b[\t\r\n\s]+.*[\t\r\n\s]+\bcreate\b[\t\r\n\s]+.*\bprocedure\b[\t\r\n\s]+`
 
-```
 # Sample Failing Scripts
 ``` sql
 --changeset amalik:Procedures_CustOrder
