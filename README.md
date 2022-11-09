@@ -1,9 +1,25 @@
-Note: You must have a valid Liquibase Pro license to use Quality Checks
-# Custom Quality Checks
+# Liquibase Pro Custom Quality Checks
+This repository is a collection of Liquibase Pro Custom Quality checks. These checks have been created by the Liquibase community, including our customers and field engineers. You are encouraged to use these rules in your own Liquibase Pro pipelines. If you need any help with these rules, please contact support@liquibase.com and our team will be happy to assist you. 
 
-Quality Checks provided here are in addition to Quality Checks shipped with Liquibase. 
+[Liquibase Pro Quality Checks](https://www.liquibase.com/quality-checks) enable developers to write safe, compliant database code every time. You can enforce rules and best practices set by your DBAs, reducing security risks and costly manual errors. 
 
-These quality checks are designed using regular expressions.
+You can learn more about [Working with Quality Checks](https://docs.liquibase.com/commands/quality-checks/working-with-quality-checks.html) in our documentation.
+The checks provided here are in addition to those shipped with Liquibase. 
+
+We welcome any contributions from the community - just send us a pull request!
+
+*Note: You must have a valid Liquibase Pro license to use Quality Checks*
+
+# Repository Structure
+
+This repository is organized according to the database that the quality checks are compatible with. These are listed below.
+
+| Database |
+|----------|
+| [All Databases](AnyDB)|
+| [Oracle](Oracle) |
+| [SQL Server](SQL&#32;Server) |
+
 
 # Repository Structure
 The repository is aligned by database type.
