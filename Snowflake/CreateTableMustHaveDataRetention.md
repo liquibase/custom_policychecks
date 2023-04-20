@@ -7,7 +7,7 @@ regex: `(?is)(?=.*\b(create)\b)(?=.*\b(table)\b)(?!.*\b(data_retention_time_in_d
 # Sample Passing Scripts
 ``` sql
 --changeset asmith:create_order_table_with_tt
-create or replace order table (
+create or replace order_table (
     orderkey number(38,0),
     custkey number(38,0)
 )
@@ -18,7 +18,7 @@ data_retention_time_in_days=3
 # Sample Failing Scripts
 ``` sql
 --changeset asmith:create_order_table_without_tt
-create or replace order table (
+create or replace order_table (
     orderkey number(38,0),
     custkey number(38,0)
 )
