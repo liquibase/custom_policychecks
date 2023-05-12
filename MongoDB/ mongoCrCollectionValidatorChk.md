@@ -72,7 +72,7 @@ db.createCollection("students", {
                   {
                     "mongoFile": {
                       "dbms": "mongodb",
-                      "path": "create-collection-students.js",
+                      "path": "create-collection-students-fails.js",
                       "relativeToChangelogFile": true
                     }
                   }
@@ -86,7 +86,7 @@ db.createCollection("students", {
                 ]
             }    
         }
---create-collection-students.js contents
+--create-collection-students-fails.js contents
 -- current bug in core is not finding QCs violation when this is embedded in changelog so
 --it is defined in separate file that contains what is passed to mongosh
 db.createCollection("students");
