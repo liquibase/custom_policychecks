@@ -4,7 +4,7 @@ Every `db.<collection>.createIndex` Warning that mongosh change inculdes a creat
 
 regex: `(?i)(?s)createIndex`
 
-# Sample Passing Script
+# Sample Warning Script
 ``` mongosh 
           "changeSet": {
               "id": "create_students-name-index",
@@ -40,16 +40,8 @@ db.students.createIndex({
     unique: true
 });
 
-```
-# Sample Failing Scripts
 
---create-collection-students-fails.js contents
--- current bug in core is not finding QCs violation when this is embedded in JSON changelog so
---it is defined in separate file that contains what is passed to mongosh
---The string 'createIndex' would not be present in the javascript file anywhere
-
-```
-# Sample Error Message
+# Sample Warning Message
 ```
 CHANGELOG CHECKS
 ----------------

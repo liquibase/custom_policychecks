@@ -61,7 +61,7 @@ db.students.createIndex({
               "rollback": [
                   {
                     "mongo": {
-                      "mongo": "db.students.dropIndex( \"IDX-students-uniquename\")"
+                      "mongo": "db.students.dropIndex( \"ID-students-uniquename\")"
                     }
                   }
               ]
