@@ -1,4 +1,4 @@
-# mongoCreateIdxWarning
+# mongoCrIndexNameStdChk
 
 Every `db.<collection>.createIndex` call should name the index starting with 'IDX' this is a suggested nameing standard but can be tailored to look for any string that fits the naming standard
 
