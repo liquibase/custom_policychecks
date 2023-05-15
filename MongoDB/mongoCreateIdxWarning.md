@@ -40,7 +40,7 @@ db.students.createIndex({
     unique: true
 });
 
-
+```
 # Sample Warning Message
 ```
 CHANGELOG CHECKS
