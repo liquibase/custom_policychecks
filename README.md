@@ -17,16 +17,20 @@ This repository is organized according to the database that the quality checks a
 | Database |
 |----------|
 | [All Databases](AnyDB)|
+| [MongoDB](MongoDB) |
 | [Oracle](Oracle) |
 | [SQL Server](SQL&#32;Server) |
+| [Snowflake](Snowflake) |
 
 
 # Repository Structure
 The repository is aligned by database type.
 
 * `AnyDB` folder contains custom Quality Checks applicable for all database script. 
+* `MongoDB` folder contains custom Quality Checks applicable for MongoDB scripts. 
 * `Oracle` folder contains custom Quality Checks applicable for Oracle script. 
 * `SQL Server` folder contains custom Quality Checks applicable for SQL Server script.
+* `Snowflake` folder contains custom Quality Checks applicable for Snowflake scripts.
 
 Use the [Issues](https://github.com/liquibase/custom_qualitychecks/issues) link to request additional custom Quality Checks. Also provide sample failing scripts with each issue.
 
