@@ -6,18 +6,26 @@ regex: `(?im)create\s*(or\s*replace\s*|)table\s*((?-i).*[a-z].*)\s*\(`
 
 # Sample Failing Scripts
 ``` sql
-create table dbo.SALES
+create table Sales (
+	id numeric not null 
+);
 ```
 ``` sql
-CREATE TABLE DBO.sales
+create table dbo.SALES (
+	id numeric not null 
+);
 ```
 ``` sql
-create table Sales
+create table DBO.sales (
+	id numeric not null 
+);
 ```
 
 # Sample Passing Scripts
 ``` sql
-create table DBO.SALES
+create table SALES (
+	id numeric not null 
+);
 ```
 
 # Sample Error Message
