@@ -11,7 +11,7 @@ DELETE FROM dbo.Table01 WHERE ID='1';
 ```
 # Sample Failing Scripts
 ``` sql
---changeset amalik:delete runAlways:true
+--changeset amalik:delete
 DELETE FROM dbo.Table01;
 ```
 
