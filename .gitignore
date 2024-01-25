@@ -1,0 +1,4 @@
+liquibase.checks-settings.conf
+liquibase.properties
+changelog.xml
+DBScripts/**
