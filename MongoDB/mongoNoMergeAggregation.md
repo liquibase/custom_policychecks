@@ -18,11 +18,11 @@ CHANGELOG CHECKS
 ----------------
 Checks completed validation of the changelog and found the following issues:
 
-Check Name:         Check for specific patterns in sql (mongoNoUpdateMany)
-Changeset ID:       updateMany1
+Check Name:         Check for specific patterns in sql (mongoNoMergeAggregation)
+Changeset ID:       mergeAggregation1
 Changeset Filepath: changelog.xml
 Check Severity:     BLOCKER (Return code: 4)
-Message:            Error! updateMany() not allowed in MongoDB scripts.
+Message:            Error! aggregate $merge not allowed in MongoDB scripts.
 ```
 
 # Step-by-Step
