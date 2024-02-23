@@ -5,7 +5,8 @@ Create Object should be either Create Or Replace Object or Create Object If Not 
 regex: `(?is)(?=.*\b(create\s*(table|procedure|function|view))\b)(?!.*\b(if\s*not\s*exists)\b).*`
 
 # Sample Passing Scripts
-``` --liquibase formatted sql
+``` sql
+--liquibase formatted sql
 --changeset AmySmith:table_01 labels:JIRA-1234
 CREATE OR REPLACE TABLE SALES (
 	id numeric not null,
@@ -55,14 +56,6 @@ Message:            Create Object should be either Create Or Replace Object or
 ```
 
 # Step-by-Step
-```
-Command: liquibase checks copy --check-name=SqlUserDefinedPatternCheck
-Short Name: CreateObjectCheck
-Severity: <Choose a value: 0, 1, 2, 3, 4>
-Search String: (?is)(?=.*\b(create\s*(table|procedure|function|view))\b)(?!.*\b(if\s*not\s*exists)\b).*
-Message: Create Object should be either Create Or Replace Object or Create Object If Not Exists
-Strip Comments: true
-```
 | Prompt | Command or User Input |
 | ------ | ----------------------|
 | > | `liquibase checks customize --check-name=SqlUserDefinedPatternCheck` |
