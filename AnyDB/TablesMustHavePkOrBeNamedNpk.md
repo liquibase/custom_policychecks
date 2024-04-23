@@ -3,30 +3,42 @@
 Database check to find tables that do not have a Primary Key AND do not contain "NPK" in their name.
 This check uses Check Chaining which was requires Liquibase Pro 4.27.0+.
 
-regex: `(?i:select \*)`
+# Sample Passing Tables
+``` sql
+CREATE TABLE `tablenpk` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL
+);
+```
 
-# Sample Failing Scripts
 ``` sql
-SELECT * FROM DATABASECHANGELOG;
+CREATE TABLE `tablewithpk` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+);
 ```
+
+# Sample Failing Table
 ``` sql
-SELECT * from dbo.DATABASECHANGELOG;
-```
-``` sql
-SELECT * from [dbo].[DATABASECHANGELOG];
+CREATE TABLE `tablewithoutpk` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL
+);
 ```
 
 # Sample Error Message
 ```
-CHANGELOG CHECKS
+DATABASE CHECKS
 ----------------
-Checks completed validation of the changelog and found the following issues:
+Validation of the database snapshot found the following issues:
 
-Check Name:         Check for specific patterns in sql (NoSelectStar)
-Changeset ID:       sales
-Changeset Filepath: changeLogs/1_tables/02_insertTable1.sql
-Check Severity:     INFO (Return code: 4)
-Message:            Error! SELECT * not allowed.
+Check Name:         Chained checks template (TablesWithoutPKNamingStandard)
+Object Type:        table
+Object Name:        tablewithoutpk
+Object Location:    horses.horses.tablewithoutpk
+Check Severity:     MAJOR (Return code: 2)
+Message:            Tables without primary keys must have npk in the table name
 ```
 # Step-by-Step
 
