@@ -67,5 +67,5 @@ Message:            Tables without primary keys must have npk in the table name
 | > | `liquibase checks copy --check-name=ChainedChecksTemplate` |
 | Give your check a short name for easier identification (up to 64 alpha-numeric characters only) [ChainedChecksTemplate1]: | `TablesWithoutPKNamingStandard` |
 | Set the Severity to return a code of 0-4 when triggered. (options: 'INFO'=0, 'MINOR'=1, 'MAJOR'=2, 'CRITICAL'=3, 'BLOCKER'=4)? [INFO]: | `<Choose a value: 0, 1, 2, 3, 4>` |
-| Enter the shortname, logic conditional (using &&, \|\|, !), and optional (groupings) for your checks. Example: "(shortname1 && shortname2) || shortname3": | `TablesMustHavePK && TablenameContainsNPK` |
+| Enter the shortname, logic conditional (using &&, \|\|, !), and optional (groupings) for your checks. Example: "(shortname1 && shortname2) \|\| shortname3": | `TablesMustHavePK && TablenameContainsNPK` |
 | Set 'MESSAGE' [A match for regular expression <SEARCH_STRING> was detected in Changeset <CHANGESET>.]: | `Tables without primary keys must have npk in the table name` |
