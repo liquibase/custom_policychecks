@@ -2,3 +2,5 @@ liquibase.checks-settings.conf
 liquibase.properties
 changelog.xml
 DBScripts/**
+.DS_Store
+.idea/
