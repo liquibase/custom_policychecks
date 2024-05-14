@@ -48,7 +48,7 @@ Check Name:         Check for specific patterns in sql (CreateTableMustHavePrima
 Changeset ID:       employee
 Changeset Filepath: changeLogs/1_tables/01_createTable1.sql
 Check Severity:     INFO (Return code: 0)
-Message:            Warning! CREATE TABLE statement must have a primary key
+Message:            Error! CREATE TABLE statement must have a primary key
                     included.
 ```
 
