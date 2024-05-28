@@ -42,14 +42,13 @@ create table table01 (
 ```
 DATABASE CHECKS
 ----------------
-Validation of the database snapshot found the following issues:
+Checks completed validation of the changelog and found the following issues:
 
-Check Name:         Chained checks template (TablesWithoutPKNamingStandard)
-Object Type:        table
-Object Name:        tablewithoutpk
-Object Location:    horses.horses.tablewithoutpk
+Check Name:         Chained checks template (EnumerationListContext)
+Changeset ID:       table01
+Changeset Filepath: changelogs/changelog.sql
 Check Severity:     MAJOR (Return code: 2)
-Message:            Tables without primary keys must have npk in the table name
+Message:            If context is provided, value must be DEV, UAT, or PROD.
 ```
 # Step-by-Step
 
@@ -63,7 +62,7 @@ Message:            Tables without primary keys must have npk in the table name
 | Give your check a short name for easier identification (up to 64 alpha-numeric characters only) [UserDefinedContextCheck1]: | `ContextEnvironmentsDevUatProd` |
 | Set the Severity to return a code of 0-4 when triggered. (options: 'INFO'=0, 'MINOR'=1, 'MAJOR'=2, 'CRITICAL'=3, 'BLOCKER'=4)? [INFO]: | `<Choose a value: 0, 1, 2, 3, 4>` |
 | Set 'OPERATOR' (options: STARTS_WITH, ENDS_WITH, CONTAINS, REGEXP, EQUALS) [STARTS_WITH]: | `REGEXP` |
-| Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?i:(|(|!)DEV|(|!)UAT|(|!)PROD))` |
+| Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?i:(\|(\|!)DEV\|(\|!)UAT\|(\|!)PROD))` |
 
 | Prompt | Command or User Input |
 | ------ | ----------------------|
