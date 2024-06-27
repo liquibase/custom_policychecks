@@ -46,3 +46,4 @@ Message:            Tables must have CREATE TABLE statement.
 | Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?is)^((?!create\s*table).)*$` |
 | Set 'MESSAGE' [A match for regular expression <SEARCH_STRING> was detected in Changeset <CHANGESET>.]: | `Tables must have CREATE TABLE statement.` |
 | Set 'STRIP_COMMENTS' (options: true, false) [true]: | `true` |
+| Set 'PATH_FILTER_REGEX': | `Tables\/.*` |
