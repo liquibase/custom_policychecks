@@ -3,6 +3,7 @@
 All changesets in the Tables folder must have CREATE TABLE statement only.
 
 regex: `(?is)^((?!create\s*table).)*$`
+
 path_filter_regex: `Tables\/.*`
 
 # Sample Passing Changeset
