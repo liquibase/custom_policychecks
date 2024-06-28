@@ -33,7 +33,7 @@ Checks completed validation of the changelog and found the following issues:
 Check Name:         Check for specific patterns in sql (TablesMustHaveCreateTableOnly)
 Changeset ID:       new-table
 Changeset Filepath: Tables/bad_table.sql
-Check Severity:     INFO (Return code: 2)
+Check Severity:     MAJOR (Return code: 2)
 Message:            Tables must have CREATE TABLE statement.
 ```
 # Step-by-Step
