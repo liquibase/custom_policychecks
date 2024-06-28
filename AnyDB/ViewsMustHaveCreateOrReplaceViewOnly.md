@@ -34,11 +34,11 @@ CHANGELOG CHECKS
 ----------------
 Checks completed validation of the changelog and found the following issues:
 
-Check Name:         Check for specific patterns in sql (TablesMustHaveCreateTableOnly)
-Changeset ID:       new-table
-Changeset Filepath: Tables/bad_table.sql
+Check Name:         Check for specific patterns in sql (ViewsMustHaveCreateOrReplaceViewOnly)
+Changeset ID:       new-view
+Changeset Filepath: Views/bad_view.sql
 Check Severity:     INFO (Return code: 2)
-Message:            Tables must have CREATE TABLE statement.
+Message:            Views must have CREATE OR REPLACE VIEW statement.
 ```
 # Step-by-Step
 
