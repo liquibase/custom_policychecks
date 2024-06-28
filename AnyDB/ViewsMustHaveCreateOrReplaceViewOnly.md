@@ -37,7 +37,7 @@ Checks completed validation of the changelog and found the following issues:
 Check Name:         Check for specific patterns in sql (ViewsMustHaveCreateOrReplaceViewOnly)
 Changeset ID:       new-view
 Changeset Filepath: Views/bad_view.sql
-Check Severity:     INFO (Return code: 2)
+Check Severity:     MAJOR (Return code: 2)
 Message:            Views must have CREATE OR REPLACE VIEW statement.
 ```
 # Step-by-Step
