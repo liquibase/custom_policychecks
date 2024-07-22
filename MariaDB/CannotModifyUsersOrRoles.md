@@ -11,7 +11,7 @@ Do not allow the following statements for `ROLE`:
 <br>`DROP ROLE`
 <br>`SET ROLE`
 
-regex: `(?is)(?=.*\b(create|replace|drop|alter|set)\b)(?=.*\b(user|role)\b).*`
+regex: `(?is)(?=.*\b(create|replace|drop|alter|rename|set)\b)(?=.*\b(user|role)\b).*`
 
 # Sample Failing Scripts for USER
 ``` sql

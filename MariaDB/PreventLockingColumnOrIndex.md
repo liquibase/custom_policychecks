@@ -1,13 +1,11 @@
 # PreventLockingColumnOrIndex
 
-`ADD COLUMN`, `ADD INDEX`, and `RENAME TABLE` must be done in an online manner to prevent locking. `ALGORITHM=INPLACE, LOCK=NONE` is required when using the following statements: 
+`ADD COLUMN` and `ADD INDEX` must be done in an online manner to prevent locking. `ALGORITHM=INPLACE, LOCK=NONE` is required when using the following statements: 
 <br>`ALTER TABLE ... ADD COLUMN`
 <br>`ALTER TABLE ... ADD INDEX`
 <br>`CREATE INDEX`
-<br>`ALTER TABLE ... RENAME TO`
-<br>`RENAME TABLE ... TO`
 
-regex: `(?is)(?=.*\b(alter\s*table|create|rename\s*table)\b)(?=.*\b(column|index|to)\b)(?!.*\b(algorithm\s*=\s*inplace\s*,\s*lock\s*=\s*none)\b).*`
+regex: `(?is)(?=.*\b(alter\s*table|create)\b)(?=.*\b(column|index)\b)(?!.*\b(algorithm\s*=\s*inplace\s*,\s*lock\s*=\s*none)\b).*`
 
 # Sample Failing Scripts
 ``` sql
@@ -18,12 +16,6 @@ ALTER TABLE new_table_01 ADD INDEX b_index (b);
 ```
 ``` sql
 CREATE INDEX b_index ON new_table_01 (b);
-```
-``` sql
-ALTER TABLE new_table_01 RENAME TO old_table_01;
-```
-``` sql
-RENAME TABLE new_table_01 TO old_table_01;
 ```
 
 # Sample Passing Scripts
@@ -37,14 +29,6 @@ algorithm = inplace, lock=none;
 ```
 ``` sql
 CREATE INDEX b_index ON new_table_01 (b),
-algorithm = inplace, lock=none;
-```
-``` sql
-ALTER TABLE new_table_01 RENAME TO old_table_01,
-algorithm = inplace, lock=none;
-```
-``` sql
-RENAME TABLE new_table_01 TO old_table_01,
 algorithm = inplace, lock=none;
 ```
 
