@@ -51,6 +51,6 @@ Message:            Adding a COLUMN or INDEX needs to be done in an online manne
 | > | `liquibase checks customize --check-name=SqlUserDefinedPatternCheck` |
 | Give your check a short name for easier identification (up to 64 alpha-numeric characters only) [SqlUserDefinedPatternCheck1]: | `PreventLockingColumnOrIndex` |
 | Set the Severity to return a code of 0-4 when triggered. (options: 'INFO'=0, 'MINOR'=1, 'MAJOR'=2, 'CRITICAL'=3, 'BLOCKER'=4)? [INFO]: | `<Choose a value: 0, 1, 2, 3, 4>` |
-| Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?is)(?=.*\b(alter\s*table\|create)\b)(?=.*\b(column\|index)\b)(?!.*\b(algorithm\s*=\s*inplace)\b).*` |
+| Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?is)(?=.*\b(alter\s*table\|create)\b)(?=.*\b(column\|index)\b)(?!.*\b(algorithm\s*=\s*inplace\s*,\s*lock\s*=\s*none)\b).*` |
 | Set 'MESSAGE' [A match for regular expression <SEARCH_STRING> was detected in Changeset <CHANGESET>.]: | `Adding a COLUMN or INDEX needs to be done in an online manner.` |
 | Set 'STRIP_COMMENTS' (options: true, false) [true]: | `true` |
