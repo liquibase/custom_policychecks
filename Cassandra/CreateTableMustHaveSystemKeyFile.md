@@ -1,4 +1,4 @@
-# CreateTableMustHavePrimaryKey
+# CreateTableMustHaveSystemKeyFile
 
 Every `CREATE TABLE` statement must also have a `system_key_file` included.
 
