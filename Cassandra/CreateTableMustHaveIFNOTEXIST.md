@@ -1,8 +1,8 @@
-# CreateTableMustHavePrimaryKey
+# CreateTableMustHaveIFNOTEXIST
 
-Every `CREATE TABLE` statement must also have a `PRIMARY KEY` included.
+Every `CREATE TABLE` statement must use `IF NOT EXISTS` syntax.
 
-regex: `(?is)(?=.*\b(create)\b)(?=.*\b(table)\b)(?!.*\b(primary)\b)(?!.*\b(key)\b).*`
+regex: `(?is)(?=.*\b(create)\b)(?=.*\b(table)\b)(?!.*\b(if)\b)(?!.*\b(not)\b)(?!.*\b(exists)\b).*`
 
 # Sample Passing Script
 ``` sql
@@ -13,29 +13,21 @@ CREATE TABLE EMPLOYEE (
    LAST_NAME VARCHAR(26)
 );
 
---changeset amalik:company
-CREATE TABLE COMPANY (
-   COMPANY_ID INT NOT NULL, 
-   BOOKING_DATE DATE NOT NULL,
-	ROOMS_TAKEN INT DEFAULT 0, 
-   PRIMARY KEY (COMPANY_ID, BOOKING_DATE)
+--changeset amalik:cyclist_name
+CREATE TABLE IF NOT EXISTS cycling.cyclist_name (
+  id UUID PRIMARY KEY,
+  lastname text,
+  firstname text
 );
 ```
 # Sample Failing Scripts
 ``` sql
---changeset amalik:employee
-CREATE TABLE EMPLOYEE (
-   EMPLOYEE_ID INT NOT NULL GENERATED ALWAYS AS IDENTITY	CONSTRAINT PEOPLE_PK, 
-   FIRST_NAME VARCHAR(26),
-   LAST_NAME VARCHAR(26)
+--changeset amalik:cyclist_name
+CREATE TABLE cycling.cyclist_name (
+  id UUID PRIMARY KEY,
+  lastname text,
+  firstname text
 );
-
---changeset amalik:company
-CREATE TABLE COMPANY (
-   COMPANY_ID INT NOT NULL, 
-   BOOKING_DATE DATE NOT NULL,
-	ROOMS_TAKEN INT DEFAULT 0, 
-;
 ```
 
 # Sample Error Message
@@ -44,20 +36,19 @@ CHANGELOG CHECKS
 ----------------
 Checks completed validation of the changelog and found the following issues:
 
-Check Name:         Check for specific patterns in sql (CreateTableMustHavePrimaryKey)
-Changeset ID:       employee
-Changeset Filepath: changeLogs/1_tables/01_createTable1.sql
-Check Severity:     INFO (Return code: 0)
-Message:            Error! CREATE TABLE statement must have a primary key
-                    included.
+Check Name:         Check for specific patterns in sql (CreateTableMustHaveIFNOTEXIST)
+Changeset ID:       cyclist_name
+Changeset Filepath: main/100_ddl/06_CassandraDDL.sql
+Check Severity:     BLOCKER (Return code: 4)
+Message:            Error! CREATE TABLE statement must use "IF NOT EXISTS" syntax.
 ```
 
 # Step-by-Step
 | Prompt | Command or User Input |
 | ------ | ----------------------|
 | > | `liquibase checks customize --check-name=SqlUserDefinedPatternCheck` |
-| Give your check a short name for easier identification (up to 64 alpha-numeric characters only) [SqlUserDefinedPatternCheck1]: | `CreateTableMustHavePrimaryKey` |
+| Give your check a short name for easier identification (up to 64 alpha-numeric characters only) [SqlUserDefinedPatternCheck1]: | `CreateTableMustHaveIFNOTEXIST` |
 | Set the Severity to return a code of 0-4 when triggered. (options: 'INFO'=0, 'MINOR'=1, 'MAJOR'=2, 'CRITICAL'=3, 'BLOCKER'=4)? [INFO]: | `<Choose a value: 0, 1, 2, 3, 4>` |
-| Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?is)(?=.*\b(create)\b)(?=.*\b(table)\b)(?!.*\b(primary)\b)(?!.*\b(key)\b).*` |
-| Set 'MESSAGE' [A match for regular expression <SEARCH_STRING> was detected in Changeset <CHANGESET>.]: | `Error! CREATE TABLE statement must have a primary key included.` |
+| Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?is)(?=.*\b(create)\b)(?=.*\b(table)\b)(?!.*\b(if)\b)(?!.*\b(not)\b)(?!.*\b(exists)\b).*` |
+| Set 'MESSAGE' [A match for regular expression <SEARCH_STRING> was detected in Changeset <CHANGESET>.]: | `Error! CREATE TABLE statement must use "IF NOT EXISTS" syntax.` |
 | Set 'STRIP_COMMENTS' (options: true, false) [true]: | `true` |
