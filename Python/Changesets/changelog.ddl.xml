@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>	
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+
+    <changeSet id="1" author="jbennett" labels="release-1.0.0">
+        <createTable tableName="ORGANIZATIONS">
+            <column name="ID" type="int">
+                <!-- <constraints primaryKey="true" nullable="false" primaryKeyTablespace="JBENNETT"/> -->
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar(200)"/>
+            <column name="INDUSTRY" type="char(400)"/> 
+            <column name="EMPLOYEE_COUNT" type="int"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="jbennett" id="2" labels="release-1.1.0">
+        <sql>
+            INSERT INTO ORGANIZATIONS (ID, NAME, INDUSTRY, EMPLOYEE_COUNT) VALUES (1, 'Acme, Inc.', 'Explosives', 1);
+            INSERT INTO ORGANIZATIONS VALUES (2, 'Initech', 'Y2K', 50);
+            INSERT INTO ORGANIZATIONS VALUES (3, 'Umbrella Corporation', 'Zombies', 10000);
+            INSERT INTO ORGANIZATIONS VALUES (4, 'Soylent Green', 'People', 100);
+            INSERT INTO ORGANIZATIONS VALUES (5, 'Globex Corp', 'Widgets', 5000);
+            <!-- UPDATE ORGANIZATIONS SET ID = 6, NAME = 'Liquibase, 1nc.' WHERE ID = 5; -->
+        </sql>
+        <rollback>
+          <sql>DELETE FROM ORGANIZATIONS WHERE ID BETWEEN 1 AND 5;</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="3" author="jbennett" labels="release-1.2.0">
+        <createTable tableName="ADDRESSES">
+            <column name="ID" type="int"/>
+            <column name="ADDRESS_LINE_1" type="varchar(500)"/>
+            <column name="CITY" type="varchar(200)"/> 
+            <column name="STATE" type="varchar(3)"/>
+            <column name="ZIP_CODE" type="varchar(9)"/> 
+            <column name="ORG_ID" type="int">
+                <constraints foreignKeyName="FK_ADDRESSES_ORGANIZATIONS" referencedColumnNames="ID" referencedTableName="ORGANIZATIONS"/>
+            </column>  
+        </createTable>
+    </changeSet>
+
+    <changeSet id="4" author="jbennett" labels="release-1.2.1">
+        <!-- <addPrimaryKey columnNames="ID" constraintName="pk_addresses" tableName="ADDRESSES" tablespace="JBENNETT"/> -->
+        <addPrimaryKey columnNames="ID" constraintName="pk_addresses" tableName="ADDRESSES"/>
+    </changeSet>
+
+    <changeSet id="5" author="jbennett" labels="release-1.3.0">
+        <createTable tableName="Employees">
+            <column name="ID" type="int">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="PK_Emp"/>
+            </column>  
+            <column name="FIRST_NAME" type="varchar(200)"/>
+            <column name="LAST_NAME" type="varchar(200)"/> 
+            <column name="DATE_OF_BIRTH" type="date"/>
+            <column name="ORG_ID" type="int"/>
+            <column name="NOTES" type="clob"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="6" author="jbennett" labels="release-1.3.1">
+        <addForeignKeyConstraint
+            baseColumnNames="ORG_ID"
+            baseTableName="EMPLOYEES"
+            constraintName="ORG_FK2"
+            referencedColumnNames="ID"
+            referencedTableName="ORGANIZATIONS"/>
+    </changeSet>
+
+    <changeSet id="7" author="jbennett" labels="release-1.4.0">
+        <sql>DELETE FROM "ORGANIZATIONS";</sql>
+        <rollback/>
+    </changeSet>
+
+    <changeSet id="8" author="jbennett" labels="release-1.5.0">
+        <createIndex indexName="IDX_INDUSTRY" tableName="ORGANIZATIONS">
+            <column name="INDUSTRY"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="9" author="jbennett" labels="release-1.5.1">
+        <createIndex indexName="IDX_NAME" tableName="ORGANIZATIONS">
+            <column name="NAME"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="10" author="jbennett" labels="release-1.6.0">
+        <addColumn tableName="ORGANIZATIONS">
+            <column name="RANK" type="int" defaultValue="0"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="11" author="jbennett" labels="release-1.6.0">
+        <addColumn tableName="Employees">
+            <column name="COUNTRY" type="varchar(50)"/>
+            <column name="PHONE" type="varchar(50)" defaultValue="N/A"/>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>
