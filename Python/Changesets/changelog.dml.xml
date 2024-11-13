@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>	
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+
+    <changeSet author="jbennett" id="1" labels="release-1.2.1">
+        <preConditions onFail="CONTINUE">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM ADDRESSES</sqlCheck>
+        </preConditions>
+        <loadData file="Data/Addresses.csv" tableName="ADDRESSES"/>
+        <rollback>
+          <sql>DELETE FROM ADDRESSES WHERE ID BETWEEN 1 AND 5;</sql>
+        </rollback>
+    </changeSet>
+
+    <changeSet author="jbennett" id="2" labels="release-1.3.1">
+        <preConditions onFail="CONTINUE">
+            <sqlCheck expectedResult="0">SELECT COUNT(*) FROM EMPLOYEES</sqlCheck>
+        </preConditions>
+        <loadData file="Data/Employees.csv" tableName="EMPLOYEES"/>
+        <rollback>
+          <sql>DELETE FROM EMPLOYEES WHERE ID BETWEEN 1 AND 5;</sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
