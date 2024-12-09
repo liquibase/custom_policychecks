@@ -461,6 +461,24 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Path | Scripts/test_formatted_sql.py |
     | Args | |
     | Snapshot | false |
+1. [**DynamoBillingModeCheck**](Scripts/billing_mode.py)
+    | Key | Value |
+    |--------|----------|
+    | Database | DynamoDB |
+    ```
+    liquibase checks customize --check-name=CustomCheckTemplate
+    ```
+    | Prompt | Response |
+    |--------|----------|
+    | Short Name | DynamoBillingModeCheck |
+    | Severity | 0-4 |
+    | Description | Validate billinbg mode for new tables. |
+    | Scope | changelog |
+    | Message | Billing mode for new tables must be \_\_BILLING_MODE\_\_. |
+    | Type | python |
+    | Path | Scripts/billing_mode.py |
+    | Args | BILLING_MODE=PROVISIONED |
+    | Snapshot | false |
 # Contact Liquibase
 #### Liquibase sales: https://www.liquibase.com/contact
 #### Liquibase support: https://support.liquibase.com

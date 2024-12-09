@@ -1,5 +1,5 @@
 ###
-### This script ensures a table has less than x indexes
+### This script checks for DATA_TYPE columns when creating tables
 ###
 ### Notes:
 ### 1. Only basic CREATE statements are supported
