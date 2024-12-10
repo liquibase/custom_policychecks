@@ -21,7 +21,7 @@ liquibase_logger = liquibase_utilities.get_logger()
 liquibase_status = liquibase_utilities.get_status()
 
 ###
-### Retrive maximum size from check definition
+### Retrive billing mode from check definition
 ###
 billing_mode = liquibase_utilities.get_arg("BILLING_MODE")
 if len(billing_mode) == 0:
@@ -37,9 +37,6 @@ changes = liquibase_utilities.get_changeset().getChanges()
 ### Loop through all changes
 ###
 for change in changes:
-    ###
-    ### LoadData change types are not currently supported
-    ###
     change_type = change.getClass().getSimpleName()
     if change_type.casefold() != "DynamoCreateTableChange".casefold():
         liquibase_logger.info(f"{change_type} changetype skipped.")
