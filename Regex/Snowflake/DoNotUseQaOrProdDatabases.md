@@ -7,7 +7,7 @@ regex: `(?is)(?=create|drop|alter|insert|select|delete).*(?:_prod|_qa)\.`
 
 # Sample Passing Scripts
 ``` sql
-CREATE TABLE CMS_DEV.myschema.table1 (val1 number, val2 date);
+CREATE TABLE myschema.table1 (val1 number, val2 date);
 ```
 
 # Sample Failing Scripts
