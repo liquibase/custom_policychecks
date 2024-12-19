@@ -34,8 +34,7 @@ Check Name:         Check for specific patterns in sql (CreateTableMustHaveOneGr
 Changeset ID:       EMPLOYEE
 Changeset Filepath: script1.sql
 Check Severity:     MAJOR (Return code: 2)
-Message:            Error! CREATE TABLE statement found but there was no GRANT found. Every CREATE TABLE must have at least one GRANT
-                    statement.
+Message:            Error! CREATE TABLE statement found but there was no GRANT found. Every CREATE TABLE must have at least one GRANT statement.
 ```
 
 # Step-by-Step
