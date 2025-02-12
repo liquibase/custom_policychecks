@@ -474,5 +474,5 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Args | COLUMN_TYPE=TIMESTAMP, COLUMN_POSTFIX=_TS |
     | Snapshot | false |
 # ☎️ Contact Liquibase
-#### Liquibase sales: https://www.liquibase.com/contact
-#### Liquibase support: https://support.liquibase.com
+Liquibase sales: https://www.liquibase.com/contact-us<br>
+Liquibase support: https://support.liquibase.com
