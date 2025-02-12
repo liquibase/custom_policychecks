@@ -2,10 +2,10 @@
   <img src="../img/liquibase.png" alt="Liquibase Logo" title="Liquibase Logo" width="324" height="72">
 </p>
 
-# Liquibase Pro Regex Policy Checks
+# 🔒 Liquibase Pro Regex Policy Checks
 This repository is a collection of Liquibase Pro Regex Policy checks. These checks have been created by the Liquibase community, including our customers and field engineers. You are encouraged to use these rules in your own Liquibase Pro pipelines. If you need any help with these rules, please contact support@liquibase.com and our team will be happy to assist you. 
 
-# Repository Structure
+# 📂 Repository Structure
 This repository is organized according to the database that the policy checks are compatible with. These are listed below.
 
 | Database |
@@ -17,7 +17,7 @@ This repository is organized according to the database that the policy checks ar
 | [Snowflake](Snowflake) |
 
 
-# Repository Structure
+# 📂 Repository Structure
 The repository is aligned by database type.
 
 * `AnyDB` folder contains regex Policy Checks applicable for all database script. 
@@ -34,6 +34,7 @@ Each regex Policy Check is documented as follows:
 - Sample failing script is provide and where applicable a sample passing script is also provided
 - Sample error message is provided
 - Step-by-step commands for how to configure each regex Policy Check
-# Contact Liquibase
-#### Liquibase sales: https://www.liquibase.com/contact
-#### Liquibase support: https://support.liquibase.com
+
+# ☎️ Contact Liquibase
+Liquibase sales: https://www.liquibase.com/contact-us<br>
+Liquibase support: https://support.liquibase.com
