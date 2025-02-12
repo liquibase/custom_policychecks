@@ -2,10 +2,10 @@
   <img src="../img/liquibase.png" alt="Liquibase Logo" title="Liquibase Logo" width="324" height="72">
 </p>
 
-# Liquibase Pro Python Policy Checks
+# 🔒 Liquibase Pro Python Policy Checks
 This repository is a collection of Liquibase Pro Python Policy checks. These checks have been created by the Liquibase community, including our customers and field engineers. You are encouraged to use these rules in your own Liquibase Pro pipelines. If you need any help with these rules, please contact support@liquibase.com and our team will be happy to assist you.
 
-# Useful Links
+# 💡 Useful Links
 | Description | Source |
 |-------------|--------|
 | Documentation| [Liquibase](https://docs.liquibase.com/liquibase-pro/policy-checks/custom-policy-checks/home.html)
@@ -16,7 +16,7 @@ This repository is a collection of Liquibase Pro Python Policy checks. These che
 | GraalPy reference | [Medium.com](https://medium.com/graalvm/graalpy-quick-reference-0488b661a57c)
 | venv reference | [Python.org](https://docs.python.org/3/library/venv.html)
 
-# Pre-Execution Steps
+# ✔️ Pre-Execution Steps
 1. Java 17 or higher is required. 
 1. Download latest version of [Liquibase](https://www.liquibase.com/download) and the latest version of the [checks jar](https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-checks/) file.
 1. Ensure this Environment variable or setting is set to enable custom policy checks.<br>
@@ -29,7 +29,7 @@ This repository is a collection of Liquibase Pro Python Policy checks. These che
     checks-scripts-enabled=true
     ```
 
-# Notes
+# 📒 Notes
 1. To aid in debugging, it's recommended all non-custom policy checks be disabled.
 1. Relational and NoSQL changelogs are available in the [Changesets](Changesets/) folder.
 1. Scripts are called once for each changeset (changelog scope) or once for each database object (database scope). Changesets may contain multiple SQL statements.
@@ -62,8 +62,9 @@ This repository is a collection of Liquibase Pro Python Policy checks. These che
 
     print(os.environ.get("LIQUIBASE_COMMAND_URL"))
     ```
+1. Most changelog checks use string parsing to process SQL and supposrt only simple statements. The [sqlparse](https://pypi.org/project/sqlparse/) module can be used for more complex statements. See [NoDeleteWithoutWhere](Scripts/delete_without_where.py) and [TimestampColumnName](Scripts/timestamp_column_name.py) for sqlparse examples.
 
-# Local Python Environment
+# 🐍 Local Python Environment
 *Not required to use or develop custom policy checks*
 
 To use a local Python environment, versus the built-in one, follow these steps:
@@ -98,7 +99,7 @@ To use a local Python environment, versus the built-in one, follow these steps:
     ```
 1. Run checks as normal. To revert back to the built-in environment, unset the environment variable.
 
-# Configuration Steps
+# 🔧 Configuration Steps
 **Note:** script path includes name of script file
 1. [**NoDeleteWithoutWhere**](Scripts/delete_without_where.py)
     | Key | Value |
@@ -114,7 +115,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | DELETE statements must have a WHERE clause. |
     | Scope | changelog |
     | Message | All DELETE statements must have a WHERE clause. |
-    | Type | python |
     | Path | Scripts/delete_without_where.py |
     | Args |  |
     | Snapshot | false |
@@ -132,7 +132,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Table names must be UPPERCASE. |
     | Scope | changelog |
     | Message | Table \_\_TABLE_NAME\_\_ must be UPPERCASE. |
-    | Type | python |
     | Path | Scripts/table_names_uppercase.py |
     | Args |  |
     | Snapshot | false |
@@ -150,7 +149,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Column names must not exceed VARCHAR_MAX size. |
     | Scope | database |
     | Message | Column \_\_COLUMN_NAME\_\_ exceeds \_\_COLUMN_SIZE\_\_. |
-    | Type | python |
     | Path | Scripts/varchar_max_size.py |
     | Args | VARCHAR_MAX=255 |
     | Snapshot | false |
@@ -168,7 +166,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Primary key names must include table name. |
     | Scope | database |
     | Message | Primary key name \_\_CURRENT_NAME\_\_ must include table name (\_\_NAME_STANDARD\_\_). |
-    | Type | python |
     | Path | Scripts/pk_names.py |
     | Args | |
     | Snapshot | false |
@@ -186,7 +183,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | VARCHAR columns cannot accept numeric data. |
     | Scope | changelog |
     | Message | Inserting numeric data into column \_\_COLUMN_NAME\_\_ is not allowed. |
-    | Type | python |
     | Path | Scripts/varchar_data_integrity.py |
     | Args | |
     | Snapshot | true |
@@ -204,7 +200,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | New collections must include a validator. |
     | Scope | changelog |
     | Message | New collections must include a validator. |
-    | Type | python |
     | Path | Scripts/collection_without_validator.py |
     | Args |  |
     | Snapshot | false |
@@ -222,7 +217,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Name must be in the form of tablename_pkey. |
     | Scope | DATABASE |
     | Message | Primary key name \_\_CURRENT_NAME\_\_ must include table name.  Please use (\_\_NAME_STANDARD\_\_) instead. |
-    | Type | PYTHON |
     | Path | Scripts/pk_names_pg.py |
     | Args | STANDARD=pkey |
     | Snapshot | false |
@@ -240,7 +234,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Tables can have a maximum of MAX_INDEX indexes. |
     | Scope | changelog |
     | Message | Table \_\_TABLE_NAME\_\_ would have \_\_INDEX_COUNT\_\_ indexes. |
-    | Type | python |
     | Path | Scripts/create_index_count.py |
     | Args | MAX_INDEX=2 |
     | Snapshot | true |
@@ -258,7 +251,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Warn if DATA_TYPE columns are used. |
     | Scope | changelog |
     | Message | Datatype \_\_COLUMN_TYPE\_\_ is discouraged for column \_\_COLUMN_NAME\_\_. |
-    | Type | python |
     | Path | Scripts/table_column_disallow.py |
     | Args | DATA_TYPE=CLOB |
     | Snapshot | false |
@@ -276,7 +268,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Column names must be MAX_SIZE or lower in length. |
     | Scope | database |
     | Message | Name of \_\_OBJECT_TYPE\_\_ \_\_OBJECT_NAME\_\_ is \_\_CURRENT_SIZE\_\_ characters. |
-    | Type | python |
     | Path | Scripts/table_column_name_size.py |
     | Args | MAX_SIZE=10 |
     | Snapshot | false |
@@ -294,7 +285,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Only changes in current schema are allowed. |
     | Scope | changelog |
     | Message | Only changes to schema \_\_SCHEMA_NAME\_\_ are allowed. |
-    | Type | python |
     | Path | Scripts/current_schema_only.py |
     | Args | |
     | Snapshot | true |
@@ -312,7 +302,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Foreign keys must include parent and child table names. |
     | Scope | changelog |
     | Message | Foreign key name \_\_NAME_CURRENT\_\_ must include parent and child table names (\_\_NAME_STANDARD\_\_). |
-    | Type | python |
     | Path | Scripts/fk_names.py |
     | Args | |
     | Snapshot | false |
@@ -330,7 +319,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Primary keys must include a tablespace definition. |
     | Scope | changelog |
     | Message | Primary key name \_\_PK_NAME\_\_ must include explicit tablespace definition. |
-    | Type | python |
     | Path | Scripts/pk_tablespace.py |
     | Args | |
     | Snapshot | false |
@@ -348,7 +336,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | New columns must not have a default value assigned. |
     | Scope | changelog |
     | Message | Column \_\_COLUMN_NAME\_\_ in table \_\_TABLE_NAME\_\_ should not have a default value. |
-    | Type | python |
     | Path | Scripts/column_default_value.py |
     | Args | |
     | Snapshot | false |
@@ -366,7 +353,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Varchar2 column Must Define Char instead of Bytes |
     | Scope | changelog |
     | Message | VARCHAR2 column \_\_COLUMN_NAME\_\_ must use CHAR instead of default BYTES |
-    | Type | python |
     | Path | Scripts/varchar2_must_use_char.py |
     | Args | |
     | Snapshot | false |
@@ -384,7 +370,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Warn if CHAR data type is used. |
     | Scope | database |
     | Message | Column \_\_COLUMN_NAME\_\_ has type CHAR, VARCHAR preferred. |
-    | Type | python |
     | Path | Scripts/varchar_preferred.py |
     | Args | |
     | Snapshot | false |
@@ -402,7 +387,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | New tables must include a tablespace definition. |
     | Scope | changelog |
     | Message | Table \_\_TABLE_NAME\_\_ must include explicit tablespace definition. |
-    | Type | python |
     | Path | Scripts/create_table_tablespace.py |
     | Args | |
     | Snapshot | false |
@@ -420,7 +404,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Identifiers should not include quotes. |
     | Scope | changelog |
     | Message | Identifier \_\_ID_NAME\_\_ should not include quotes. |
-    | Type | python |
     | Path | Scripts/identifiers_without_quotes.py |
     | Args | |
     | Snapshot | false |
@@ -439,7 +422,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Index of table must be in a different tablespace than table. |
     | Scope | changelog |
     | Message | Index \_\_INDEX_NAME\_\_ must be in a different tablespace than \_\_TABLE_NAME\_\_ tablespace \_\_TABLE_SPACE\_\_ |
-    | Type | python |
     | Path | Scripts/index_in_different_tablespace.py |
     | Args | |
     | Snapshot | true |
@@ -457,7 +439,6 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | SQL files must include Liquibase meta data. |
     | Scope | changelog |
     | Message | SQL files must include Liquibase meta data. |
-    | Type | python |
     | Path | Scripts/test_formatted_sql.py |
     | Args | |
     | Snapshot | false |
@@ -475,10 +456,23 @@ To use a local Python environment, versus the built-in one, follow these steps:
     | Description | Validate billinbg mode for new tables. |
     | Scope | changelog |
     | Message | Billing mode for new tables must be \_\_BILLING_MODE\_\_. |
-    | Type | python |
     | Path | Scripts/billing_mode.py |
     | Args | BILLING_MODE=PROVISIONED |
     | Snapshot | false |
-# Contact Liquibase
+1. [**TimestampColumnName**](Scripts/timestamp_column_name.py)
+    ```
+    liquibase checks customize --check-name=CustomCheckTemplate
+    ```
+    | Prompt | Response |
+    |--------|----------|
+    | Short Name | TimestampColumnNamePython |
+    | Severity | 0-4 |
+    | Description | Timestamp column names must include _ts. |
+    | Scope | changelog |
+    | Message | Column name \_\_COLUMN_NAME\_\_ must include \_\_COLUMN_POSTFIX\_\_. |
+    | Path | Scripts/timestamp_column_name.py |
+    | Args | COLUMN_TYPE=TIMESTAMP, COLUMN_POSTFIX=_TS |
+    | Snapshot | false |
+# ☎️ Contact Liquibase
 #### Liquibase sales: https://www.liquibase.com/contact
 #### Liquibase support: https://support.liquibase.com
