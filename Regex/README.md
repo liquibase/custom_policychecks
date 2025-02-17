@@ -11,20 +11,12 @@ This repository is organized according to the database that the policy checks ar
 | Database |
 |----------|
 | [All Databases](AnyDB)|
+| [Cassandra](Cassandra) |
+| [MariaDB](MariaDB) |
 | [MongoDB](MongoDB) |
 | [Oracle](Oracle) |
-| [SQL Server](SQL&#32;Server) |
 | [Snowflake](Snowflake) |
-
-
-# 📂 Repository Structure
-The repository is aligned by database type.
-
-* `AnyDB` folder contains regex Policy Checks applicable for all database script. 
-* `MongoDB` folder contains regex Policy Checks applicable for MongoDB scripts. 
-* `Oracle` folder contains regex Policy Checks applicable for Oracle script. 
-* `SQL Server` folder contains regex Policy Checks applicable for SQL Server script.
-* `Snowflake` folder contains regex Policy Checks applicable for Snowflake scripts.
+| [SQL Server](SQL&#32;Server) |
 
 Each file is a description of the regex Policy Check and contains step-by-step procedure for adding the check.
 
