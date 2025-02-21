@@ -3,7 +3,9 @@
 </p>
 
 # 🔒 Liquibase Pro Regex Policy Checks
-This repository is a collection of Liquibase Pro Regex Policy checks. These checks have been created by the Liquibase community, including our customers and field engineers. You are encouraged to use these rules in your own Liquibase Pro pipelines. If you need any help with these rules, please contact support@liquibase.com and our team will be happy to assist you. 
+This repository is a collection of Liquibase Pro Regex Policy checks. These checks have been created by the Liquibase community, including our customers and field engineers. You are encouraged to use these rules in your own Liquibase Pro pipelines. 
+
+If you need any help with these rules, please contact support@liquibase.com and our team will be happy to assist you (Pro customers only).
 
 # 📂 Repository Structure
 This repository is organized according to the database that the policy checks are compatible with. These are listed below.
@@ -29,4 +31,4 @@ Each regex Policy Check is documented as follows:
 
 # ☎️ Contact Liquibase
 Liquibase sales: https://www.liquibase.com/contact-us<br>
-Liquibase support: https://support.liquibase.com
+Liquibase support (Pro customers only): https://support.liquibase.com
