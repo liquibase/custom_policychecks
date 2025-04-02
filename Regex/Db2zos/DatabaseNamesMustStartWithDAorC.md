@@ -1,6 +1,6 @@
 # DatabaseNamesMustStartWithDAorC
 
-DATABASE NAMES must start with D, A, or C.
+DATABASE NAMES must be specified and start with D, A, or C.
 
 regex: `(?is)create\s*table\s*([^dac\W][A-Za-z0-9_]*)\.\w+`
 
@@ -36,7 +36,7 @@ Check Name:         Check for specific patterns in sql (DatabaseNamesMustStartWi
 Changeset ID:       create_table_with_incorrect_db_name
 Changeset Filepath: sql_code/Scripts/TABLES_01.sql
 Check Severity:     BLOCKER (Return code: 4)
-Message:            Error! DATABASE NAMES must start with D, A, or C.
+Message:            Error! DATABASE NAMES must be specified and start with D, A, or C.
 ```
 
 # Step-by-Step
