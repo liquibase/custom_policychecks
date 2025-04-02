@@ -16,7 +16,7 @@ regex: `(?is)create\s+tablespace\s+(?![sha])[A-Za-z0-9_]{1,8}\b|create\s+tablesp
 # Sample Failing Scripts
 ``` sql
 --changeset asmith:create_tablespace_with_incorrect_name
-  CREATE TABLESPACE SCH10001
+  CREATE TABLESPACE GCH10001
     IN DBA0001
     USING STOGROUP SYSPOOL1;
 ```
