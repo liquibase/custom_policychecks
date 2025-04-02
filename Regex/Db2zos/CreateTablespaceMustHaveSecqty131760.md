@@ -10,7 +10,7 @@ regex: `(?is)(?=.*\b(create)\b)(?=.*\b(tablespace)\b)(?!.*\b(secqty\s*131760)\b)
   CREATE TABLESPACE ABC00001
     IN DBA0001
     USING STOGROUP SYSPOOL1
-	MAXPARTITIONS 20
+	PRIQTY 720 SECQTY 13248
 ;
 ```
 
