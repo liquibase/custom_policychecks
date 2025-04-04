@@ -126,7 +126,7 @@ for change in changes:
                 break
                 
             else:
-                print(f"Buffer Pool in script: {buffer_pool}")
+                ### print(f"Buffer Pool in script: {buffer_pool}")
                 
                 ###
                 ### Check that the buffer pool values match
