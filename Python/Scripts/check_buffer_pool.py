@@ -1,17 +1,17 @@
 ###
 ### This script checks that the Buffer Pool specified in the tablespace
-### matches the default Buffer Pool for the Database (also specified in the tablespace).
+### matches the default Buffer Pool for the Database.
 ###
 ###
 ### This script throws the following errors:
 ### 1) Default Buffer Pool Not Found for Database {database_name}.
 ### 2) Buffer Pool Not Found in CREATE TABLESPACE script.
-### 3) CREATE TABLESPACE Buffer Pool (buffer_name) must match the default Buffer Pool (default_buffer_pool) for the database (database_name). (pulls from check setup)
+### 3) CREATE TABLESPACE Buffer Pool (buffer_name) must match the default Buffer Pool (default_buffer_pool) for the database (database_name).
 ###
 ### Sample Tablespace:
 ###
 ###  CREATE TABLESPACE SBA01003
-###    IN DBA01TE
+###    IN DBA0001
 ###    USING STOGROUP SYSPOOL1
 ###    PRIQTY 720 SECQTY 720
 ###    ERASE  NO
@@ -22,13 +22,13 @@
 ###    LOGGED
 ###    DSSIZE 8 G
 ###    SEGSIZE 32
-###    BUFFERPOOL BP5
+###    BUFFERPOOL BP0
 ###    LOCKSIZE ANY
 ###    LOCKMAX SYSTEM....
 ###
 ### Query to find default Buffer Pool:
 ### 
-### SELECT BPOOL FROM SYSIBM.SYSDATABASE WHERE NAME = 'DB2TSTE';
+### SELECT BPOOL FROM SYSIBM.SYSDATABASE WHERE NAME = 'DBA0001';
 
 ###
 ### Helpers come from Liquibase
