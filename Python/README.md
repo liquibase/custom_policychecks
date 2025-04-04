@@ -511,7 +511,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
 1. [**CheckBufferPool**](Scripts/check_buffer_pool.py)
     | Key | Value |
     |--------|----------|
-    | Database | Relational |
+    | Database | DB2 Z/OS |
     ```
     liquibase checks customize --check-name=CustomCheckTemplate
     ```
