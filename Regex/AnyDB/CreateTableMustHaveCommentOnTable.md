@@ -13,7 +13,7 @@ CREATE TABLE TEST_TABLE_01 (
 	LASTNAME VARCHAR(50) NOT NULL
 );
 
-COMMENT ON TABLE create_table_01 IS 'Table description goes here.';
+COMMENT ON TABLE TEST_TABLE_01 IS 'Table description goes here.';
 ```
 
 # Sample Failing Scripts
