@@ -1,6 +1,6 @@
-# CreateTableMustHaveCommentOnTable
+# CreateTableCommentCheck
 
-CREATE TABLE statements must include COMMENT ON TABLE statement.
+CREATE TABLE statements must include COMMENT ON TABLE description.
 
 regex: `(?is)(?=.*\b(create\s*table)\b)(?!.*\b(comment\s*on\s*table)\b)`
 
@@ -32,7 +32,7 @@ CHANGELOG CHECKS
 ----------------
 Checks completed validation of the changelog and found the following issues:
 
-Check Name:         Check for specific patterns in sql (CreateTableMustHaveCommentOnTable)
+Check Name:         Check for specific patterns in sql (CreateTableCommentCheck)
 Changeset ID:       create_table_01_without_comment
 Changeset Filepath: sql_code/Scripts/TABLES_01.sql
 Check Severity:     BLOCKER (Return code: 4)
@@ -43,7 +43,7 @@ Message:            Error! CREATE TABLE must include COMMENT ON TABLE for table 
 | Prompt | Command or User Input |
 | ------ | ----------------------|
 | > | `liquibase checks customize --check-name=SqlUserDefinedPatternCheck` |
-| Give your check a short name for easier identification (up to 64 alpha-numeric characters only) [SqlUserDefinedPatternCheck1]: | `CreateTableMustHaveCommentOnTable` |
+| Give your check a short name for easier identification (up to 64 alpha-numeric characters only) [SqlUserDefinedPatternCheck1]: | `CreateTableCommentCheck` |
 | Set the Severity to return a code of 0-4 when triggered. (options: 'INFO'=0, 'MINOR'=1, 'MAJOR'=2, 'CRITICAL'=3, 'BLOCKER'=4)? [INFO]: | `<Choose a value: 0, 1, 2, 3, 4>` |
 | Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?is)(?=.*\b(create\s*table)\b)(?!.*\b(comment\s*on\s*table)\b)` |
 | Set 'MESSAGE' [A match for regular expression <SEARCH_STRING> was detected in Changeset <CHANGESET>.]: | `Error! CREATE TABLE must include COMMENT ON TABLE for table description.` |
