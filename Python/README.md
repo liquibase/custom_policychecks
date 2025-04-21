@@ -525,6 +525,23 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/check_buffer_pool.py |
     | Args | |
     | Snapshot | false |
+1. [**ShowRollback**](Scripts/show_rollback.py)
+    | Key | Value |
+    |--------|----------|
+    | Database | Relational |
+    ```
+    liquibase checks customize --check-name=CustomCheckTemplate
+    ```
+    | Prompt | Response |
+    |--------|----------|
+    | Short Name | ShowRollback |
+    | Severity | 0-4 |
+    | Description | Sample to display rollback statements. |
+    | Scope | changelog |
+    | Message | Sample to display rollback statements. |
+    | Path | Scripts/show_rollback.py |
+    | Args | |
+    | Snapshot | false |    
 # ☎️ Contact Liquibase
 Liquibase sales: https://www.liquibase.com/contact-us<br>
 Liquibase support (Pro customers only): https://support.liquibase.com
