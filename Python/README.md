@@ -150,6 +150,40 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/table_names_uppercase.py |
     | Args |  |
     | Snapshot | false |
+1. [**TableNameMustBeCamelCase**](Scripts/table_name_is_camelcase.py)
+    | Key | Value |
+    |--------|----------|
+    | Database | Relational |
+    ```
+    liquibase checks customize --check-name=CustomCheckTemplate
+    ```
+    | Prompt | Response |
+    |--------|----------|
+    | Short Name | TableNameMustBeCamelCase |
+    | Severity | 0-4 |
+    | Description | Table name must be camelCase. |
+    | Scope | changelog |
+    | Message | |
+    | Path | Scripts/table_name_is_camelcase.py |
+    | Args |  |
+    | Snapshot | false |
+1. [**CollectionNameMustBeCamelCase**](Scripts/collection_name_is_camelcase.py)
+    | Key | Value |
+    |--------|----------|
+    | Database | MongoDB/DocumentDB |
+    ```
+    liquibase checks customize --check-name=CustomCheckTemplate
+    ```
+    | Prompt | Response |
+    |--------|----------|
+    | Short Name | CollectionNameMustBeCamelCase |
+    | Severity | 0-4 |
+    | Description | Collection name must be camelCase. |
+    | Scope | changelog |
+    | Message | |
+    | Path | Scripts/collection_name_is_camelcase.py |
+    | Args |  |
+    | Snapshot | false |
 1. [**VarcharMaxSize**](Scripts/varchar_max_size.py)
     | Key | Value |
     |--------|----------|
