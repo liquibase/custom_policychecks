@@ -1,8 +1,8 @@
 ###
-### This script checks for camelCase collection names during createCollection
+### This script checks for camelCase table names during createTable
 ###
 ### Notes:
-### 1. Only basic createCollection statements are supported
+### 1. Only basic createTable statements are supported
 
 ###
 ### Helpers come from Liquibase
