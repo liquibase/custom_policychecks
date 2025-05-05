@@ -7,14 +7,14 @@ regex: `(?is)CREATE\s+INDEX\s+[\'\"]+(?!idx)`
 # Sample Passing Script
 ``` sql
 --changeset dev01:film_idx
-CREATE INDEX 'idx_film_fulltext_idx' 
-  ON "film"("fulltext");
+CREATE UNIQUE INDEX IDX_Index ON #Test (C2)
+  WITH (IGNORE_DUP_KEY = OFF);
 ```
 # Sample Failing Scripts
 ``` sql
 --changeset dev01:film_idx
-CREATE INDEX 'index_film_fulltext_idx' 
-  ON "film"("fulltext");
+CREATE UNIQUE INDEX AK_Index ON #Test (C2)
+  WITH (IGNORE_DUP_KEY = OFF);
 ```
 
 # Sample Error Message
@@ -23,12 +23,11 @@ CHANGELOG CHECKS
 ----------------
 Checks completed validation of the changelog and found the following issues:
 
-Check Name:         Check for specific patterns in sql (CreateTableMustHavePrimaryKey)
-Changeset ID:       sales2
-Changeset Filepath: changeLogs/1_tables/01_createTable1.sql
-Check Severity:     INFO (Return code: 4)
-Message:            Error! CREATE TABLE statement must have a primary key
-                    included.
+Check Name:         Pattern a not followed by pattern b (IndexMustHaveIdxPrefix)
+Changeset ID:       index_prefix_test_fail
+Changeset Filepath: sqlcode/1.0/schema1/changelog.yaml :: index_prefix_test_fail.sql
+Check Severity:     INFO (Return code: 0)
+Message:            Index names must be prefixed with idx_ in Changeset index_prefix_test_fail.
 ```
 
 # Step-by-Step
