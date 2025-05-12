@@ -13,7 +13,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     |--------|----------|
     | Short Name | IllegalAlter |
     | Severity | 0-4 |
-    | Description | Sample to display rollback statements. |
+    | Description | Check addresses a MySQL 8.0 issue. |
     | Scope | changelog |
     | Message | Check addresses a MySQL 8.0 issue |
     | Path | Scripts/illegalAlter.py |
