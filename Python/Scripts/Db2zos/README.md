@@ -19,6 +19,3 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/check_buffer_pool.py |
     | Args | |
     | Snapshot | false |
-# ☎️ Contact Liquibase
-Liquibase sales: https://www.liquibase.com/contact-us<br>
-Liquibase support (Pro customers only): https://support.liquibase.com
