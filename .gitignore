@@ -4,3 +4,4 @@ changelog.xml
 DBScripts/**
 .DS_Store
 .idea/
+.pdf
