@@ -1,5 +1,15 @@
 ###
-### This script checks for a validator in a collection and that ProductID is present as well
+### This script checks scans changesets that are referencing a specified key word, such as 'product' 
+### for any any createcollection or modcoll calls. If those functions are not present it exits. 
+### If those function calls exist it does check to ensure the data domain key
+### identifier is inclued in the required field section and properties section and then checks for 
+### additional 
+### 
+### The example code below is using Product data domain as an example and looking for
+### productID in properties and the bsonType is "string" and the MaxLength is set to 15
+###
+### This will fail is there is no validator, no required field section in the validator or
+### if a field called productID is not in the required fields.
 ###
 
 ###
