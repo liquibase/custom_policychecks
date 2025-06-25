@@ -9,14 +9,14 @@ If you need any help with these rules, please contact support@liquibase.com and 
 
 | Database |
 |----------|
-| [All Databases](Any/README.md)|
-| [DB2zOS](Db2zos/README.md) |
-| [DynamoDB](DynamoDB/README.md) |
-| [FormattedSQL](FormattedSQL/README.md) |
-| [MongoDB](MongoDB/README.md) |
-| [MySQL](MySQL/README.md) |
-| [Oracle](Oracle/README.md) |
-| [PostgreSQL](PostgreSQL/README.md) |
+| [All Databases](Scripts/Any/README.md)|
+| [DB2zOS](Scripts/Db2zos/README.md) |
+| [DynamoDB](Scripts/DynamoDB/README.md) |
+| [FormattedSQL](Scripts/FormattedSQL/README.md) |
+| [MongoDB](Scripts/MongoDB/README.md) |
+| [MySQL](Scripts/MySQL/README.md) |
+| [Oracle](Scripts/Oracle/README.md) |
+| [PostgreSQL](Scripts/PostgreSQL/README.md) |
 
 # 💡 Useful Links
 | Description | Source |
