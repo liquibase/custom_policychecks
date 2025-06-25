@@ -2,7 +2,7 @@
 To utilize the checks provided, follow these configuration steps. The script path will have to be adjusted for your specific environment.
 
 ⚠️ *Script path includes name of the Python file*
-1. [**VarcharMaxSize**](Scripts/varchar_max_size.py)
+1. [**VarcharMaxSize**](varchar_max_size.py)
     | Key | Value |
     |--------|----------|
     | Database | Oracle |
@@ -19,7 +19,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/varchar_max_size.py |
     | Args | VARCHAR_MAX=255 |
     | Snapshot | false |
-1. [**TableColumnDisallow**](Scripts/table_column_disallow.py)
+1. [**TableColumnDisallow**](table_column_disallow.py)
     | Key | Value |
     |--------|----------|
     | Database | Oracle |
@@ -36,7 +36,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/table_column_disallow.py |
     | Args | DATA_TYPE=CLOB |
     | Snapshot | false |
-1. [**CurrentSchemaOnly**](Scripts/current_schema_only.py)
+1. [**CurrentSchemaOnly**](current_schema_only.py)
     | Key | Value |
     |--------|----------|
     | Database | Oracle |
@@ -53,7 +53,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/current_schema_only.py |
     | Args | |
     | Snapshot | true |
-1. [**PKTablespace**](Scripts/pk_tablespace.py)
+1. [**PKTablespace**](pk_tablespace.py)
     | Key | Value |
     |--------|----------|
     | Database | Oracle |
@@ -70,7 +70,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/pk_tablespace.py |
     | Args | |
     | Snapshot | false |
-1. [**ColumnDefaultValue**](Scripts/column_default_value.py)
+1. [**ColumnDefaultValue**](column_default_value.py)
     | Key | Value |
     |--------|----------|
     | Database | Oracle |
@@ -87,7 +87,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/column_default_value.py |
     | Args | |
     | Snapshot | false |
-1. [**Varchar2MustUseChar**](Scripts/varchar2_must_use_char.py)
+1. [**Varchar2MustUseChar**](varchar2_must_use_char.py)
     | Key | Value |
     |--------|----------|
     | Database | Oracle |
@@ -104,7 +104,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/varchar2_must_use_char.py |
     | Args | |
     | Snapshot | false |
-1. [**VarcharPreferred**](Scripts/varchar_preferred.py)
+1. [**VarcharPreferred**](varchar_preferred.py)
     | Key | Value |
     |--------|----------|
     | Database | Oracle |
@@ -121,7 +121,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/varchar_preferred.py |
     | Args | |
     | Snapshot | false |
-1. [**CreateTableTablespace**](Scripts/create_table_tablespace.py)
+1. [**CreateTableTablespace**](create_table_tablespace.py)
     | Key | Value |
     |--------|----------|
     | Database | Oracle |
@@ -138,7 +138,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/create_table_tablespace.py |
     | Args | |
     | Snapshot | false |
-1. [**IndexMustUseDifferentTablespace**](Scripts/index_in_different_tablespace.py)
+1. [**IndexMustUseDifferentTablespace**](index_in_different_tablespace.py)
     | Key | Value |
     |--------|----------|
     | Database | Oracle |
@@ -153,6 +153,6 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Description | Index of table must be in a different tablespace than table. |
     | Scope | changelog |
     | Message | Index \_\_INDEX_NAME\_\_ must be in a different tablespace than \_\_TABLE_NAME\_\_ tablespace \_\_TABLE_SPACE\_\_ |
-    | Path | Scripts/index_in_different_tablespace.py |
+    | Path | index_in_different_tablespace.py |
     | Args | |
     | Snapshot | true |

@@ -2,7 +2,7 @@
 To utilize the checks provided, follow these configuration steps. The script path will have to be adjusted for your specific environment.
 
 ⚠️ *Script path includes name of the Python file*
-1. [**NoDeleteWithoutWhere**](Scripts/delete_without_where.py)
+1. [**NoDeleteWithoutWhere**](delete_without_where.py)
     | Key | Value |
     |--------|----------|
     | Database | Any |
@@ -19,7 +19,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/delete_without_where.py |
     | Args |  |
     | Snapshot | false |
-1. [**TableNamesMustBeUppercase**](Scripts/table_names_uppercase.py)
+1. [**TableNamesMustBeUppercase**](table_names_uppercase.py)
     | Key | Value |
     |--------|----------|
     | Database | Relational |
@@ -36,7 +36,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/table_names_uppercase.py |
     | Args |  |
     | Snapshot | false |
-1. [**TableNameMustBeCamelCase**](Scripts/table_name_is_camelcase.py)
+1. [**TableNameMustBeCamelCase**](table_name_is_camelcase.py)
     | Key | Value |
     |--------|----------|
     | Database | Relational |
@@ -53,7 +53,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/table_name_is_camelcase.py |
     | Args |  |
     | Snapshot | false |
-1. [**PKNamingConvention**](Scripts/pk_names.py)
+1. [**PKNamingConvention**](pk_names.py)
     | Key | Value |
     |--------|----------|
     | Database | Relational |
@@ -70,7 +70,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/pk_names.py |
     | Args | |
     | Snapshot | false |
-1. [**VarcharDataIntegrity**](Scripts/varchar_data_integrity.py)
+1. [**VarcharDataIntegrity**](varchar_data_integrity.py)
     | Key | Value |
     |--------|----------|
     | Database | Relational |
@@ -87,7 +87,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/varchar_data_integrity.py |
     | Args | |
     | Snapshot | true |
-1. [**CreateIndexCount**](Scripts/create_index_count.py)
+1. [**CreateIndexCount**](create_index_count.py)
     | Key | Value |
     |--------|----------|
     | Database | Relational |
@@ -104,7 +104,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/create_index_count.py |
     | Args | MAX_INDEX=2 |
     | Snapshot | true |
-1. [**TableColumnNameSize**](Scripts/table_column_name_size.py)
+1. [**TableColumnNameSize**](table_column_name_size.py)
     | Key | Value |
     |--------|----------|
     | Database | Relational |
@@ -121,7 +121,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/table_column_name_size.py |
     | Args | MAX_SIZE=10 |
     | Snapshot | false |
-1. [**FKNamingConvention**](Scripts/fk_names.py)
+1. [**FKNamingConvention**](fk_names.py)
     | Key | Value |
     |--------|----------|
     | Database | Relational |
@@ -138,7 +138,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/fk_names.py |
     | Args | |
     | Snapshot | false |
-1. [**IdentifiersWithoutQuotes**](Scripts/identifiers_without_quotes.py)
+1. [**IdentifiersWithoutQuotes**](identifiers_without_quotes.py)
     | Key | Value |
     |--------|----------|
     | Database | Relational |
@@ -155,7 +155,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/identifiers_without_quotes.py |
     | Args | |
     | Snapshot | false |
-1. [**TimestampColumnName**](Scripts/timestamp_column_name.py)
+1. [**TimestampColumnName**](timestamp_column_name.py)
     | Key | Value |
     |--------|----------|
     | Database | Relational |
@@ -172,7 +172,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/timestamp_column_name.py |
     | Args | COLUMN_TYPE=TIMESTAMP, COLUMN_POSTFIX=_TS |
     | Snapshot | false |
-1. [**TableRowCount**](Scripts/count_rows.py)
+1. [**TableRowCount**](count_rows.py)
     | Key | Value |
     |--------|----------|
     | Database | Relational |
@@ -189,7 +189,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/count_rows.py |
     | Args | TABLE_NAME=databasechangelog |
     | Snapshot | false |
-1. [**ShowRollback**](Scripts/show_rollback.py)
+1. [**ShowRollback**](show_rollback.py)
     | Key | Value |
     |--------|----------|
     | Database | Relational |
