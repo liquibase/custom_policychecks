@@ -42,7 +42,7 @@ Message:            CREATE OBJECT statements should be fully qualified and inclu
 | > | `liquibase checks customize --check-name=SqlUserDefinedPatternCheck` |
 | Give your check a short name for easier identification (up to 64 alpha-numeric characters only) [SqlUserDefinedPatternCheck1]: | `CreateObjectMustIncludeSchemaName` |
 | Set the Severity to return a code of 0-4 when triggered. (options: 'INFO'=0, 'MINOR'=1, 'MAJOR'=2, 'CRITICAL'=3, 'BLOCKER'=4)? [INFO]: | `<Choose a value: 0, 1, 2, 3, 4>` |
-| Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?i)\bCREATE\s+(TABLE\|VIEW\|FUNCTION\|PROCEDURE\|INDEX\|TRIGGER\|SEQUENCE\|SYNONYM|PACKAGE\|PACKAGE\s+BODY\|TYPE\|TYPE\s+BODY\|MATERIALIZED\s+VIEW)\s+(?![\[\"]?\w+[\]\"]?\.)[\[\"]?\w+[\]\"]?` |
+| Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?i)\bCREATE\s+(TABLE\|VIEW\|FUNCTION\|PROCEDURE\|INDEX\|TRIGGER\|SEQUENCE\|SYNONYM\|PACKAGE\|PACKAGE\s+BODY\|TYPE\|TYPE\s+BODY\|MATERIALIZED\s+VIEW)\s+(?![\[\"]?\w+[\]\"]?\.)[\[\"]?\w+[\]\"]?` |
 | Set 'MESSAGE' [A match for regular expression <SEARCH_STRING> was detected in Changeset <CHANGESET>.]: | `CREATE OBJECT statements should be fully qualified and include a schema name.` |
 | Set 'STRIP_COMMENTS' (options: true, false) [true]: | `true` |
 | Set 'PATH_FILTER_REGEX': | _leave blank_ |
