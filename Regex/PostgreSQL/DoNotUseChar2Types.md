@@ -6,7 +6,7 @@ regex: `(?i)\bchar(?:2|4|8|16)\b`
 
 # Sample Failing Scripts
 ``` sql
-CREATE TABLE legacy_table (
+CREATE TABLE new_table (
     id serial PRIMARY KEY,
     name char16[16]
 );
