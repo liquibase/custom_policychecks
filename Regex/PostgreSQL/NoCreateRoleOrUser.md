@@ -1,6 +1,6 @@
 # NoCreateRoleOrUser
 
-Do not allow `(?i)\bCREATE\s+(ROLE|USER)\b` statements.
+Do not allow `CREATE ROLE` or `CREATE USER` statements.
 
 regex: `(?i)\bCREATE\s+(ROLE|USER)\b`
 
@@ -18,11 +18,11 @@ CHANGELOG CHECKS
 ----------------
 Checks completed validation of the changelog and found the following issues:
 
-Check Name:         Check for specific patterns in sql (NoSelect)
-Changeset ID:       sales
-Changeset Filepath: changeLogs/1_tables/02_insertTable1.sql
+Check Name:         Check for specific patterns in sql (NoCreateRoleOrUser)
+Changeset ID:       new_user
+Changeset Filepath: changeLogs/users/asmith.sql
 Check Severity:     INFO (Return code: 4)
-Message:            Error! SELECT statements not allowed.
+Message:            CREATE ROLE and CREATE USER statements not allowed.
 ```
 # Step-by-Step
 
