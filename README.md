@@ -5,7 +5,7 @@
 # 🔒 Liquibase Pro Policy Checks
 This repository contains example [Regex](Regex/) and [Python](Python/) Policy Checks.
 
-[Liquibase Pro Policy Checks](https://www.liquibase.com/policy-checks) enable developers to write safe, compliant database code every time. You can enforce rules and best practices set by your DBAs, reducing security risks and costly manual errors. 
+[Liquibase Pro Policy Checks](https://docs.liquibase.com/policy-checks) enable developers to write safe, compliant database code every time. You can enforce rules and best practices set by your DBAs, reducing security risks and costly manual errors. 
 
 You can learn more about [Working with Policy Checks](https://docs.liquibase.com/liquibase-pro/policy-checks/workflows/home.html) in our documentation. The checks provided here are in addition to those shipped with Liquibase. 
 
