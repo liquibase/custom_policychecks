@@ -49,6 +49,6 @@ Message:            Error! updateOne, updateMany or insertOne statements must ha
 | Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?is)(?=.*\b(updateOne\|updateMany\|insertOne)\b)(?!.*\:\s+new\s+Date\(\)).*` |
 | Set 'MESSAGE' [A match for regular expression <SEARCH_STRING> was detected in Changeset <CHANGESET>.]: | `Error! updateOne, updateMany or insertOne statements must have a timestamp - use "new Date()".` |
 | Set 'STRIP_COMMENTS' (options: true, false) [true]: | `true` |
-| Set 'PATH_FILTER_REGEX': | <empty> |
-| Set 'SPLIT_STATEMENTS' to split multiple SQL statements on a delimiter, and evaluate each individually (options: true, false) [false]: | <empty> |
+| Set 'PATH_FILTER_REGEX': | \<empty\> |
+| Set 'SPLIT_STATEMENTS' to split multiple SQL statements on a delimiter, and evaluate each individually (options: true, false) [false]: | \<empty\> |
 
