@@ -1,6 +1,6 @@
 # SqlMustContainCreateFunction
 
-All changesets in the "3_function" folder must have CREATE (OR REPLACE) FUNCTION statement only.
+All changesets in the named folder must have CREATE (OR REPLACE) FUNCTION statement only. For the example, the named folder is "3_function".
 
 regex: `(?is)^((?!(create\s*function|replace\s*function)).)*$`
 
