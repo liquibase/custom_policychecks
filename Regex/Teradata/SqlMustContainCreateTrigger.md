@@ -1,6 +1,6 @@
 # SqlMustContainCreateTrigger
 
-All changesets in the "7_trigger" folder must have CREATE (OR ALTER OR REPLACE) TRIGGER statement only.
+All changesets in the named folder must have CREATE (OR ALTER OR REPLACE) TRIGGER statement only. For the example, the named folder is "7_trigger".
 
 regex: `(?is)^((?!(create\s*trigger|replace\s*trigger|alter\s*trigger)).)*$`
 
