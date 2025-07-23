@@ -1,6 +1,6 @@
 # SqlMustContainCreateView
 
-All changesets in the "2_view" folder must have CREATE (OR REPLACE) VIEW statement only.
+All changesets in the named folder must have CREATE (OR REPLACE) VIEW statement only. For the example, the named folder is "2_view".
 
 regex: `(?is)^((?!(create\s*view|cv|replace\s*view)).)*$`
 
