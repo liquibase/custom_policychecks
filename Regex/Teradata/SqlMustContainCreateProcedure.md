@@ -1,6 +1,6 @@
 # SqlMustContainCreateProcedure
 
-All changesets in the "4_procedure" folder must have CREATE (OR REPLACE) PROCEDURE statement only.
+All changesets in the named folder must have CREATE (OR REPLACE) PROCEDURE statement only. For the example, the named folder is "4_procedure".
 
 regex: `(?is)^((?!(create\s*procedure|replace\s*procedure)).)*$`
 
