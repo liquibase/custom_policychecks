@@ -1,6 +1,6 @@
 # SqlMustContainCreateType
 
-All changesets in the named folder must have CREATE TYPE statement only. for the example, the named folder is "0_type".
+All changesets in the named folder must have CREATE TYPE statement only. For the example, the named folder is "0_type".
 
 regex: `(?is)^((?!create\s*type).)*$`
 
