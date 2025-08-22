@@ -7,6 +7,11 @@
 ###
 ### Helpers come from Liquibase
 ###
+###
+### This script requires the use of Python virtual environment documented here:
+### https://docs.liquibase.com/liquibase-pro/policy-checks/custom-policy-checks/python-virtual-environment.html
+###
+
 from liquibase_checks_python import liquibase_utilities as lb
 import re
 import sys
