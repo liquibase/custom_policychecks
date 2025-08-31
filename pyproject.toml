@@ -1,0 +1,17 @@
+[project]
+name = "custom-policychecks"
+version = "0.1.0"
+description = "Liquibase Pro Policy Checks with Python test harness"
+requires-python = ">=3.8"
+dependencies = [
+    "liquibase-test-harness",
+    "pytest>=7.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest-cov>=4.0.0",
+]
+
+[tool.uv.sources]
+liquibase-test-harness = { path = "../policy-check-testharness", editable = true }

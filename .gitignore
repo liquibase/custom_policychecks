@@ -5,3 +5,16 @@ DBScripts/**
 .DS_Store
 .idea/
 **.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
