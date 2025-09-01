@@ -18,3 +18,9 @@ __pycache__/
 venv/
 ENV/
 env/
+
+# Coverage reports
+htmlcov/
+coverage.xml
+.coverage
+.coverage.*

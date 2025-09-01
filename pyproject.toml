@@ -11,7 +11,72 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pytest-cov>=4.0.0",
+    "pytest-xdist>=3.0.0",
 ]
 
 [tool.uv.sources]
 liquibase-test-harness = { path = "../policy-check-testharness", editable = true }
+
+[project.scripts]
+test-quick = "python run_tests.py --fast-only"
+test-full = "python run_tests.py"
+test-coverage = "pytest Python/tests/ --cov --cov-report=html --cov-report=xml --cov-report=term-missing -v"
+test-parallel = "pytest Python/tests/ -n 4 -v --tb=short --timeout=300"
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["Python/tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "integration: marks tests as integration tests (require Liquibase)",
+    "pure_python: marks tests as pure Python tests (mocked environment)"
+]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "-ra",
+    "--timeout=300"
+]
+
+[tool.coverage.run]
+# IMPORTANT: Only policy checks with corresponding tests should be included here
+# When creating a new test, add the policy check script path to this list
+# Example: "Python/Scripts/DatabaseType/policy_check_name.py" 
+include = [
+    "Python/Scripts/Any/create_index_count.py",     # has test: test_create_index_count.py
+    "Python/Scripts/Any/table_names_uppercase.py", # has test: test_table_names_uppercase.py
+    "Python/Scripts/MySQL/illegalAlter.py"         # has test: test_illegal_alter.py
+    # Add new tested policy checks here when creating tests
+]
+omit = [
+    "Python/Scripts/**/test_*",
+    "Python/tests/*",
+    "Python/__init__.py"
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+sort = "cover"
+precision = 1
+# Note: Policy checks run via Liquibase subprocess, so direct code coverage is limited
+# Coverage primarily tracks test harness execution paths
+# fail_under = 80.0
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:"
+]
+
+[tool.coverage.html]
+directory = "htmlcov"
+title = "Python Policy Checks Coverage Report"
+
+[tool.coverage.xml]
+output = "coverage.xml"
