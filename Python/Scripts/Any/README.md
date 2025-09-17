@@ -224,7 +224,7 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/pii_ssn.py |
     | Args |  |
     | Snapshot | false |
-1.   [**PIIPAN**](pii_pan.py)
+1. [**PIIPAN**](pii_pan.py)
     | Key | Value |
     |--------|----------|
     | Database | Relational |
