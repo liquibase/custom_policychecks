@@ -206,3 +206,39 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/show_rollback.py |
     | Args | |
     | Snapshot | false |
+1. [**PIISSN**](pii_ssn.py)
+    | Key | Value |
+    |--------|----------|
+    | Database | Relational |
+    ```
+    liquibase checks customize --check-name=CustomCheckTemplate
+    ```
+    | Prompt | Response |
+    |--------|----------|
+    | Short Name | PIISSN |
+    | Severity | 0-4 |
+    | Description | Ensure raw SSNs are not used. |
+    | Scope | changelog |
+    | Message | Ensure raw SSNs are not used. |
+    | Type | python |
+    | Path | Scripts/pii_ssn.py |
+    | Args |  |
+    | Snapshot | false |
+1.   [**PIIPAN**](pii_pan.py)
+    | Key | Value |
+    |--------|----------|
+    | Database | Relational |
+    ```
+    liquibase checks customize --check-name=CustomCheckTemplate
+    ```
+    | Prompt | Response |
+    |--------|----------|
+    | Short Name | PIIPAN |
+    | Severity | 0-4 |
+    | Description | Ensure raw PANs are not used. |
+    | Scope | changelog |
+    | Message | Ensure raw PANs are not used. |
+    | Type | python |
+    | Path | Scripts/pii_pan.py |
+    | Args |  |
+    | Snapshot | false |
