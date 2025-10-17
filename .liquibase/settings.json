@@ -1,0 +1,8 @@
+{
+  "configuration": {
+    "liquibase.reports": {},
+    "liquibase.analytics": {
+      "enabled": false
+    }
+  }
+}
