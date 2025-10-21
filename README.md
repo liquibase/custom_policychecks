@@ -2,16 +2,16 @@
   <img src="img/liquibase.png" alt="Liquibase Logo" title="Liquibase Logo" width="324" height="72">
 </p>
 
-# 🔒 Liquibase Pro Policy Checks
+# 🔒 Liquibase Secure Policy Checks
 This repository contains example [Regex](Regex/) and [Python](Python/) Policy Checks.
 
-[Liquibase Pro Policy Checks](https://docs.liquibase.com/policy-checks) enable developers to write safe, compliant database code every time. You can enforce rules and best practices set by your DBAs, reducing security risks and costly manual errors. 
+[Liquibase Secure Policy Checks](https://docs.liquibase.com/policy-checks) enable developers to write safe, compliant database code every time. You can enforce rules and best practices set by your DBAs, reducing security risks and costly manual errors. 
 
-You can learn more about [Working with Policy Checks](https://docs.liquibase.com/liquibase-pro/policy-checks/workflows/home.html) in our documentation. The checks provided here are in addition to those shipped with Liquibase. 
+You can learn more about [Working with Policy Checks](https://docs.liquibase.com/secure/user-guide-5-0/run-a-policy-check) in our documentation. The checks provided here are in addition to those shipped with Liquibase. 
 
 We welcome any contributions from the community - just send us a pull request!
 
-*Note: You must have a valid Liquibase Pro license to use Policy Checks*
+*Note: You must have a valid Liquibase Secure license to use Policy Checks*
 
 # 💡 Useful Checks Commands
 
