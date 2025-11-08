@@ -52,7 +52,8 @@ include = [
     "Python/Scripts/MySQL/illegalAlter.py",        # has test: test_illegal_alter.py
     "Python/Scripts/Any/timestamp_column_name.py", # has test: test_timestamp_column_name.py
     "Python/Scripts/Any/identifiers_without_quotes.py",  # has test: test_identifiers_without_quotes.py
-    "Python/Scripts/Oracle/varchar2_must_use_char.py"  # has test: test_varchar2_must_use_char.py
+    "Python/Scripts/Oracle/varchar2_must_use_char.py",  # has test: test_varchar2_must_use_char.py
+    "Python/Scripts/Any/row_level_security_basic.py"  # has test: test_row_level_security_basic.py
     # Add new tested policy checks here when creating tests
 ]
 omit = [
