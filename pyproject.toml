@@ -30,23 +30,29 @@ python_classes = ["Test*"]
 python_functions = ["test_*"]
 markers = [
     "integration: marks tests as integration tests (require Liquibase)",
-    "pure_python: marks tests as pure Python tests (mocked environment)"
+    "pure_python: marks tests as pure Python tests (mocked environment)",
+    "requires_liquibase: marks tests that require actual Liquibase execution (skipped in Pure Python mode)"
 ]
 addopts = [
     "--strict-markers",
     "--strict-config",
-    "-ra",
-    "--timeout=300"
+    "-ra"
 ]
 
 [tool.coverage.run]
 # IMPORTANT: Only policy checks with corresponding tests should be included here
 # When creating a new test, add the policy check script path to this list
-# Example: "Python/Scripts/DatabaseType/policy_check_name.py" 
+# Example: "Python/Scripts/DatabaseType/policy_check_name.py"
 include = [
     "Python/Scripts/Any/create_index_count.py",     # has test: test_create_index_count.py
     "Python/Scripts/Any/table_names_uppercase.py", # has test: test_table_names_uppercase.py
-    "Python/Scripts/MySQL/illegalAlter.py"         # has test: test_illegal_alter.py
+    "Python/Scripts/Any/table_name_is_camelcase.py", # has test: test_table_name_is_camelcase.py
+    "Python/Scripts/Any/delete_without_where.py",  # has test: test_delete_without_where.py
+    "Python/Scripts/Any/fk_names.py",              # has test: test_fk_names.py
+    "Python/Scripts/MySQL/illegalAlter.py",        # has test: test_illegal_alter.py
+    "Python/Scripts/Any/timestamp_column_name.py", # has test: test_timestamp_column_name.py
+    "Python/Scripts/Any/identifiers_without_quotes.py",  # has test: test_identifiers_without_quotes.py
+    "Python/Scripts/Oracle/varchar2_must_use_char.py"  # has test: test_varchar2_must_use_char.py
     # Add new tested policy checks here when creating tests
 ]
 omit = [
