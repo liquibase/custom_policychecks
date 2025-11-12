@@ -15,6 +15,22 @@ MESSAGE_TEMPLATE = "Table __TABLE_NAME__ must be UPPERCASE."
 class TestTableNamesUppercase:
     """Test suite for table_names_uppercase.py policy check."""
 
+    def test_simple_case(self):
+        """
+        Demonstrate simple test case: Check catches lowercase table name with correct message.
+        """
+        with LiquibaseCheck(
+            "Python/Scripts/Any/table_names_uppercase.py",
+            message=MESSAGE_TEMPLATE
+        ) as check:
+            sql = "CREATE TABLE lowercase_table (id INT);"
+            result = check.run(sql=sql)
+
+            assert result.fired, "Check should fire for lowercase table name"
+            assert "lowercase_table" in result.message, f"Message should contain table name, got: {result.message}"
+            assert "UPPERCASE" in result.message, f"Message should mention UPPERCASE requirement, got: {result.message}"
+    
+    
     def test_core_functionality(self, subtests):
         """
         Core functionality: Table naming validation during CREATE TABLE.
@@ -137,6 +153,7 @@ class TestTableNamesUppercase:
             sql = "CREATE TABLE (id INT);"  # Missing table name
             result = check.run(sql=sql)
             # Should not crash - proper bounds checking should handle this
+            assert result.fired
 
     def test_index_out_of_bounds_protection(self):
         """Bug test: Verify protection against IndexError when parsing SQL."""
@@ -149,12 +166,12 @@ class TestTableNamesUppercase:
             # Should not crash - bounds checking should protect against IndexError
 
     # ========================================
-    # KNOWN BUGS - Kept separate as xfail
+    # KNOWN BUG - Kept separate as xfail
     # ========================================
 
     @pytest.mark.xfail(
-        reason="BUG: table_names_uppercase.py exits on first violation instead of checking all CREATE TABLE statements. "
-               "Root cause: Line 53 uses sys.exit(1) prematurely. Fix: Accumulate all violations before reporting."
+        reason="BUG: table_names_uppercase.py only checks the first CREATE TABLE statement in multi-statement SQL. "
+               "Root cause: Line 46 uses .index('table') which finds only the first occurrence. Fix: Iterate through all TABLE keywords to check each CREATE TABLE statement."
     )
     def test_multiple_create_statements(self):
         """Edge case: Multiple CREATE TABLE statements in one changeset."""
@@ -168,22 +185,3 @@ class TestTableNamesUppercase:
             """
             result = check.run(sql=sql)
             assert result.fired, "Should fire if any table name is not uppercase"
-
-    @pytest.mark.xfail(
-        reason="BUG: table_names_uppercase.py exits on first violation instead of checking all CREATE TABLE statements. "
-               "Root cause: Line 53 uses sys.exit(1) prematurely. Same bug as test_multiple_create_statements."
-    )
-    def test_large_sql_performance(self):
-        """Performance: Large SQL with many statements should execute efficiently."""
-        with LiquibaseCheck(
-            "Python/Scripts/Any/table_names_uppercase.py",
-            message=MESSAGE_TEMPLATE
-        ) as check:
-            # Generate large SQL with many valid statements and one invalid table
-            sql_parts = ["CREATE TABLE VALID_TABLE_{} (id INT);".format(i) for i in range(50)]
-            sql_parts.append("CREATE TABLE invalid_table (id INT);")  # This should trigger
-            sql = "\n".join(sql_parts)
-
-            result = check.run(sql=sql)
-            assert result.fired, "Should find the invalid table name in large SQL"
-            assert "Table" in result.message and "invalid_table" in result.message
