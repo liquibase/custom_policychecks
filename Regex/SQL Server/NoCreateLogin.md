@@ -16,7 +16,7 @@ CHANGELOG CHECKS
 ----------------
 Checks completed validation of the changelog and found the following issues:
 
-Check Name:         Check for specific patterns in sql (NoAlterTable)
+Check Name:         Check for specific patterns in sql (NoCreateLogin)
 Changeset ID:       create_login
 Changeset Filepath: changeLogs/logins/01_createLogin1.sql
 Check Severity:     INFO (Return code: 0)
