@@ -25,7 +25,7 @@ END;
 ```
 
 # Sample Error Message
-```
+```text
 CHANGELOG CHECKS
 ----------------
 Checks completed validation of the changelog and found the following issues:
