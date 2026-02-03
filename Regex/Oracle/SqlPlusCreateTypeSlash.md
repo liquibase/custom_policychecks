@@ -38,6 +38,7 @@ Message:            For SqlPlus changesets, CREATE TYPE statements must be follo
 ```
 
 # Step-by-Step
+
 | Prompt | Command or User Input |
 | ------ | ----------------------|
 | > | `liquibase checks customize --check-name=SqlUserDefinedPatternCheck` |
@@ -48,3 +49,4 @@ Message:            For SqlPlus changesets, CREATE TYPE statements must be follo
 | Set 'STRIP_COMMENTS' (options: true, false) [true]: | `true` |
 | Set 'PATH_FILTER_REGEX': | _leave blank_ |
 | Set 'SPLIT_STATEMENTS' to split multiple SQL statements on the delimiter, and evaluate each individually (options: true, false) [false]: | false |
+
