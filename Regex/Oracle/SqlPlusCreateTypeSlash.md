@@ -2,7 +2,7 @@
 
 For SqlPlus changesets, CREATE TYPE statements must be following by a terminating '/' character.
 
-regex: `(?is)\bCREATE\s+TYPE\b[\s\S]*?;(?!\s*\r?\n\s*\/)`
+regex: `(?is)\bCREATE\s+(?:OR\s+REPLACE\s+)?TYPE\b[\s\S]*?;(?!\s*\r?\n\s*\/)`
 
 # Sample Passing Script
 ``` sql
@@ -17,7 +17,7 @@ CREATE TYPE my_object_type AS OBJECT (
 # Sample Failing Scripts
 ``` sql
 --changeset asmith:create_type_without_slash
-CREATE TYPE my_object_type AS OBJECT (
+CREATE OR REPLACE TYPE my_object_type AS OBJECT (
    id        NUMBER,
    name      VARCHAR2(100),
    created_dtm DATE
@@ -43,7 +43,7 @@ Message:            For SqlPlus changesets, CREATE TYPE statements must be follo
 | > | `liquibase checks customize --check-name=SqlUserDefinedPatternCheck` |
 | Give your check a short name for easier identification (up to 64 alpha-numeric characters only) [SqlUserDefinedPatternCheck1]: | `SqlPlusCreateTypeSlash` |
 | Set the Severity to return a code of 0-4 when triggered. (options: 'INFO'=0, 'MINOR'=1, 'MAJOR'=2, 'CRITICAL'=3, 'BLOCKER'=4)? [INFO]: | `<Choose a value: 0, 1, 2, 3, 4>` |
-| Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?is)\bCREATE\s+TYPE\b[\s\S]*?;(?!\s*\r?\n\s*\/)` |
+| Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?is)\bCREATE\s+(?:OR\s+REPLACE\s+)?TYPE\b[\s\S]*?;(?!\s*\r?\n\s*\/)` |
 | Set 'MESSAGE' [A match for regular expression <SEARCH_STRING> was detected in Changeset <CHANGESET>.]: | `For SqlPlus changesets, CREATE TYPE statements must be following by a terminating "/" character.` |
 | Set 'STRIP_COMMENTS' (options: true, false) [true]: | `true` |
 | Set 'PATH_FILTER_REGEX': | _leave blank_ |
