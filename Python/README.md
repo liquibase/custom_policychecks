@@ -2,10 +2,10 @@
   <img src="../img/liquibase.png" alt="Liquibase Logo" title="Liquibase Logo" width="324" height="72">
 </p>
 
-# 🔒 Liquibase Pro Python Policy Checks
-This repository is a collection of Liquibase Pro Python Policy checks. These checks have been created by the Liquibase community, including our customers and field engineers. You are encouraged to use these rules in your own Liquibase Pro pipelines.
+# 🔒 Liquibase Secure Python Policy Checks
+This repository is a collection of Liquibase Secure Python Policy checks. These checks have been created by the Liquibase community, including our customers and field engineers. You are encouraged to use these rules in your own Liquibase Secure pipelines.
 
-If you need any help with these rules, please contact support@liquibase.com and our team will be happy to assist you (Pro customers only).
+If you need any help with these rules, please contact support@liquibase.com and our team will be happy to assist you (Secure customers only).
 
 | Database |
 |----------|
@@ -21,7 +21,7 @@ If you need any help with these rules, please contact support@liquibase.com and 
 # 💡 Useful Links
 | Description | Source |
 |-------------|--------|
-| Documentation| [Liquibase](https://docs.liquibase.com/liquibase-pro/policy-checks/custom-policy-checks/home.html)
+| Documentation| [Liquibase](https://docs.liquibase.com/secure/user-guide-5-1/what-is-a-liquibase-secure-custom-policy-check)
 | Python code reference | [W3Schools.com](https://www.w3schools.com/python/default.asp)
 | SQL parse module reference | [ReadTheDocs.io](https://sqlparse.readthedocs.io/en/latest/)
 | GraalPy (optional, required for custom virtual environments) | [GitHub.com](https://github.com/oracle/graalpython/releases)
@@ -30,7 +30,7 @@ If you need any help with these rules, please contact support@liquibase.com and 
 
 # ✔️ Pre-Execution Steps
 1. Java 17 or higher is required. 
-1. Download the latest version of [Liquibase](https://www.liquibase.com/download). Beginning with version 4.31.0, the policy check jar is included. Older versions require the latest [checks jar](https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-checks/) to be placed inside the liquibase/lib folder.
+1. Download the latest version of [Liquibase](https://www.liquibase.com/download-secure). Beginning with version 4.31.0, the policy check jar is included. Older versions require the latest [checks jar](https://repo1.maven.org/maven2/org/liquibase/ext/liquibase-checks/) to be placed inside the liquibase/lib folder.
 1. Ensure this environment variable or setting is set to enable custom policy checks.<br>
     *Environment variable*
     ```
@@ -59,7 +59,7 @@ If you need any help with these rules, please contact support@liquibase.com and 
     my_int = 123
     liquibase_status.message = f"My variable is: {my_int}"
     ```
-1. The latest [Liquibase provided modules](https://docs.liquibase.com/liquibase-pro/policy-checks/custom-policy-checks/api-helper-scripts.html) can be imported into your checks to access Liquibase provided functions.
+1. The latest [Liquibase provided modules](https://docs.liquibase.com/secure/user-guide-5-1/what-are-some-examples-of-custom-policy-check-scripts) can be imported into your checks to access Liquibase provided functions.
     ```
     import liquibase_utilities
     import liquibase_changesets
@@ -125,4 +125,4 @@ Instead of the built-in Python virtual environment Liquibase provides, a custom 
 
 # ☎️ Contact Liquibase
 Liquibase sales: https://www.liquibase.com/contact-us<br>
-Liquibase support (Pro customers only): https://support.liquibase.com
+Liquibase support (Secure customers only): https://support.liquibase.com

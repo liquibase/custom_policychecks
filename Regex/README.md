@@ -2,10 +2,10 @@
   <img src="../img/liquibase.png" alt="Liquibase Logo" title="Liquibase Logo" width="324" height="72">
 </p>
 
-# 🔒 Liquibase Pro Regex Policy Checks
-This repository is a collection of Liquibase Pro Regex Policy checks. These checks have been created by the Liquibase community, including our customers and field engineers. You are encouraged to use these rules in your own Liquibase Pro pipelines. 
+# 🔒 Liquibase Secure Regex Policy Checks
+This repository is a collection of Liquibase Secure Regex Policy checks. These checks have been created by the Liquibase community, including our customers and field engineers. You are encouraged to use these rules in your own Liquibase Secure pipelines. 
 
-If you need any help with these rules, please contact support@liquibase.com and our team will be happy to assist you (Pro customers only).
+If you need any help with these rules, please contact support@liquibase.com and our team will be happy to assist you (Secure customers only).
 
 # 📂 Repository Structure
 This repository is organized according to the database that the policy checks are compatible with. These are listed below.
@@ -31,4 +31,4 @@ Each regex Policy Check is documented as follows:
 
 # ☎️ Contact Liquibase
 Liquibase sales: https://www.liquibase.com/contact-us<br>
-Liquibase support (Pro customers only): https://support.liquibase.com
+Liquibase support (Secure customers only): https://support.liquibase.com

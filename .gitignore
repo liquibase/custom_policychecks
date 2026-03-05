@@ -1,7 +1,8 @@
 liquibase.checks-settings.conf
-liquibase.properties
+**/*liquibase.properties
 changelog.xml
 DBScripts/**
 .DS_Store
 .idea/
 **.pdf
+.liquibase
