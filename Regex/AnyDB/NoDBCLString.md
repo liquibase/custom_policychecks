@@ -1,4 +1,4 @@
-# NoDataDmlStatements
+# NoDBCLString
 
 Do not allow any upper/lowercase variation of the string "databasechangelog" outside comments.
 
