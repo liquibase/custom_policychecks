@@ -2,6 +2,27 @@
 To utilize the checks provided, follow these configuration steps. The script path will have to be adjusted for your specific environment.
 
 ⚠️ *Script path includes name of the Python file*
+1. [**InvalidCompiles**](invalid_objects.py)
+    | Key | Value |
+    |--------|----------|
+    | Database | Oracle |
+    ```
+    liquibase checks customize --check-name=CustomCheckTemplate
+    ```
+    | Prompt | Response |
+    |--------|----------|
+    | Short Name | InvalidCompiles |
+    | Severity | 0-4 |
+    | Description | List and fail on invalid objects. |
+    | Scope | database |
+    | Message |  |
+    | Path | Scripts/invalid_objects.py |
+    | Args |  |
+    | Snapshot | false |
+
+
+
+
 1. [**VarcharMaxSize**](varchar_max_size.py)
     | Key | Value |
     |--------|----------|
