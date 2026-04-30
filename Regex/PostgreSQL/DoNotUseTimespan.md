@@ -1,4 +1,4 @@
-# DoNotUseReltime
+# DoNotUseTimespan
 
 Error when column type is timespan data type.
 
