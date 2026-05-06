@@ -39,12 +39,6 @@ ALTER TABLE address ADD CONSTRAINT fk_address_city FOREIGN KEY (city_id) REFEREN
 --changeset mikeo:delete-setnull
 ALTER TABLE payment ADD CONSTRAINT payment_rental_id_fkey FOREIGN KEY (rental_id) REFERENCES rental (rental_id) ON UPDATE CASCADE ON DELETE SET NULL
 ```
-``` sql
---changeset mikeo:delete-multi-statement
--- DELETE without WHERE should still be caught even when WHERE appears in another statement
-DELETE FROM dbo.Table01;
-SELECT * FROM dbo.AuditLog WHERE Action = 'cleanup';
-```
 # Sample Failing Scripts
 ``` sql
 --changeset amalik:delete
