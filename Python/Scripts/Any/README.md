@@ -242,3 +242,21 @@ To utilize the checks provided, follow these configuration steps. The script pat
     | Path | Scripts/pii_pan.py |
     | Args |  |
     | Snapshot | false |
+1. [**SchemaCheck**](schema_check.py)
+    | Key | Value |
+    |--------|----------|
+    | Database | Relational |
+    ```
+    liquibase checks customize --check-name=CustomCheckTemplate
+    ```
+    | Prompt | Response |
+    |--------|----------|
+    | Short Name | SchemaCheck |
+    | Severity | 0-4 |
+    | Description | Ensure objects being referenced contain a schema name. |
+    | Scope | changelog |
+    | Message | Ensure objects being referenced contain a schema name. |
+    | Type | python |
+    | Path | Scripts/schema_check.py |
+    | Args |  |
+    | Snapshot | false |
