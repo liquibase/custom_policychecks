@@ -29,16 +29,30 @@ def extract_object_identifiers(stmt):
     """
     identifiers = []
     tokens = [t for t in stmt.tokens if not t.is_whitespace]
+    
+    # Pre-collect all aliases defined in the statement (e.g., "dbo.users u" -> alias "u")
+    defined_aliases = set()
+    for token in tokens:
+        if isinstance(token, Identifier):
+            alias = token.get_alias()
+            if alias:
+                defined_aliases.add(alias.lower())
+
+    # Pre-collect cursor names (e.g., DECLARE crs_Year CURSOR ...)
+    defined_cursors = set()
     for i, token in enumerate(tokens):
-        # DML keywords: INSERT, UPDATE, DELETE
+        if token.ttype is Keyword and token.value.upper() == "CURSOR":
+            if i > 0:
+                cursor_name = str(tokens[i - 1]).strip().lower()
+                defined_cursors.add(cursor_name)
+    
+    for i, token in enumerate(tokens):
         is_dml_trigger = (
             token.ttype is DML and token.value.upper() in ("UPDATE", "INSERT", "DELETE")
         )
-        # DDL keywords: CREATE, ALTER (ttype varies by sqlparse version)
         is_ddl_trigger = (
             token.ttype in (DDL, Keyword) and token.value.upper() in ("CREATE", "ALTER")
         )
-        # Other keywords: FROM, JOIN, INTO, EXEC, etc.
         is_keyword_trigger = (
             token.ttype is Keyword and token.value.upper() in (
                 "FROM", "JOIN", "INTO", "EXEC", "EXECUTE",
@@ -47,19 +61,32 @@ def extract_object_identifiers(stmt):
         )
         if not (is_dml_trigger or is_ddl_trigger or is_keyword_trigger):
             continue
+
         # Look ahead for next non-whitespace token
         j = i + 1
         while j < len(tokens) and tokens[j].is_whitespace:
             j += 1
         if j >= len(tokens):
             continue
+
         next_token = tokens[j]
+
+        # Skip tokens that are known aliases or cursor names (e.g., UPDATE u ... FROM dbo.users u)
+        token_str = str(next_token).strip().lower()
+        if token_str in defined_aliases or token_str in defined_cursors:
+            continue
+
+        # Skip subqueries (next token is an opening parenthesis)
+        if str(next_token).strip().startswith("("):
+            continue
+
         if isinstance(next_token, Identifier):
             identifiers.append(next_token)
         elif next_token.ttype in (Name, None):
             obj_name_str = str(next_token).strip()
             if obj_name_str:
                 identifiers.append(Identifier([next_token]))
+
     return identifiers
 
 def check_schema_qualification(sql_text):
@@ -81,8 +108,8 @@ def check_schema_qualification(sql_text):
             full_name = str(ident).strip().split()[0]  # only first token
             schema = ident.get_parent_name()
             name = ident.get_real_name() or ident.get_name()
-            # Ignore temp tables, sys objects, etc.
-            if not name or name.startswith("#") or full_name.lower().startswith("sys."):
+            # Ignore temp tables, variables, sys objects, etc.
+            if not name or name.startswith("#") or name.startswith("@") or full_name.lower().startswith("sys."):
                 continue
             # Flag if schema missing
             if not schema and "." not in full_name:
@@ -107,6 +134,7 @@ for change in changes:
     ### Retrieve raw sql and check for schema qualification violations
     ###
     sql_text = liquibase_utilities.generate_sql(change)
+    # print(f"RAW SQL: {repr(sql_text)}")
     violations = check_schema_qualification(sql_text)
     if violations:
         msg = f"Missing schema for object '{violations[0]}' in SQL statement."
