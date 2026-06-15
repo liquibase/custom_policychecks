@@ -1,14 +1,23 @@
 ###
 ### This script checks for the phrase "DELETE FROM" without "WHERE"
 ###
-### Notes:
+### Implementation notes:
+###   Uses liquibase_sqlglot.parse_changes with extract_statements_starting_with
+###   so the SQL is walked once and only DELETE-leading statements are parsed.
+###   On bulk-INSERT changesets (potentially many MB) that happen to contain
+###   the substring "delete" in row data, this short-circuits the parser
+###   instead of paying full SQL tokenization on the entire payload.
+###
+### Required Liquibase Secure: a build that includes
+### liquibase_sqlglot.parse_changes(extract_statements_starting_with=...).
 ###
 
 ###
 ### Helpers come from Liquibase
 ###
 import liquibase_utilities
-import sqlparse
+import liquibase_sqlglot
+import sqlglot.expressions as exp
 import sys
 
 ###
@@ -23,42 +32,25 @@ liquibase_logger = liquibase_utilities.get_logger()
 liquibase_status = liquibase_utilities.get_status()
 
 ###
-### Retrieve all changes in changeset
+### Walk each change's SQL once and parse only DELETE-leading statements.
+### must_contain_all skips the walk entirely on changes whose generated SQL
+### does not contain "delete" anywhere.
 ###
-changes = liquibase_utilities.get_changeset().getChanges()
-
-###
-### Loop through all changes
-###
-for change in changes:
-    ###
-    ### LoadData change types are not currently supported
-    ###
-    if "loaddatachange" in change.getClass().getSimpleName().lower():
-        continue
-    ###
-    ### Retrieve sql as string, remove extra whitespace
-    ###
-    raw_sql = liquibase_utilities.strip_comments(liquibase_utilities.generate_sql(change)).casefold()
-    raw_sql = " ".join(raw_sql.split())
-    ###
-    ### Split sql into statements
-    ###
-    raw_statements = liquibase_utilities.split_statements(raw_sql)
-    for raw_statement in raw_statements:
+for _stmt, expressions in liquibase_sqlglot.parse_changes(
+        must_contain_all=("delete",),
+        extract_statements_starting_with="delete"):
+    for expression in expressions:
         ###
-        ### Get list of token objects, convert to string
+        ### Fire when a DELETE statement carries no WHERE clause.
+        ### sqlglot represents missing WHERE as args.get("where") is None,
+        ### so cases like "DELETE FROM t WHERE 1=1" parse correctly and
+        ### do not fire, while "DELETE FROM t" does fire.
         ###
-        tokens = liquibase_utilities.tokenize(raw_statement)
-        keywords = [str(token) for token in tokens if token.is_keyword or isinstance(token, sqlparse.sql.Where)]
-        keywords = [keyword for keyword in " ".join(keywords).split()]
-        ###
-        ### Look for delete
-        ###
-        if len(keywords) >= 2 and keywords[0] == "delete" and keywords[1] == "from" and "where" not in keywords:
+        if isinstance(expression, exp.Delete) and expression.args.get("where") is None:
             liquibase_status.fired = True
             liquibase_status.message = liquibase_utilities.get_script_message()
             sys.exit(1)
+
 ###
 ### Default return code
 ###
