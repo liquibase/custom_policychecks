@@ -2,7 +2,25 @@
 
 Every `DELETE` statement must also have a `WHERE` included.
 
-regex: `(?is)(?=.*\b(delete)\b)(?!.*\b(restrict)\b)(?!.*\bno\s+action\b)(?!.*\bset\s+null\b)(?!.*\b(where)\b).*`
+regex: `(?i)\bdelete\b(?![^;]*(?:\bwhere\b|\brestrict\b|\bno\s+action\b|\bset\s+null\b))`
+
+> **Note:** An earlier version of this check used the pattern
+> `(?is)(?=.*\b(delete)\b)(?!.*\b(restrict)\b)(?!.*\bno\s+action\b)(?!.*\bset\s+null\b)(?!.*\b(where)\b).*`.
+> That pattern has two issues:
+>
+> 1. **Performance** — The `(?=.*\b…\b)` positive lookahead causes
+>    [catastrophic backtracking](https://www.regular-expressions.info/catastrophic.html)
+>    in Java's regex engine. On large changesets (thousands of INSERT rows)
+>    it can take hours or crash the JVM.
+> 2. **Correctness** — The `(?s)` (DOTALL) flag and `.*` lookaheads scan the
+>    *entire changeset* content, not individual SQL statements. If a changeset
+>    contains `DELETE FROM t;` (no WHERE) alongside a separate
+>    `SELECT … WHERE …` statement, the `WHERE` in the second statement
+>    satisfies the negative lookahead and the bare DELETE goes unflagged.
+>
+> The updated pattern anchors on the `DELETE` keyword and scopes the
+> lookahead to the current SQL statement (up to the next `;`), fixing both
+> issues.
 
 # Sample Passing Scripts
 ``` sql
@@ -26,6 +44,12 @@ ALTER TABLE payment ADD CONSTRAINT payment_rental_id_fkey FOREIGN KEY (rental_id
 --changeset amalik:delete
 DELETE FROM dbo.Table01;
 ```
+``` sql
+--changeset amalik:delete-multi-statement
+-- Bare DELETE is flagged even though WHERE appears in a different statement in the same changeset
+DELETE FROM dbo.Table01;
+SELECT * FROM dbo.AuditLog WHERE Action = 'cleanup';
+```
 
 # Sample Error Message
 ```
@@ -47,6 +71,6 @@ Message:            Error! All DELETE statements must have a WHERE clause.
 | > | `liquibase checks customize --check-name=SqlUserDefinedPatternCheck` |
 | Give your check a short name for easier identification (up to 64 alpha-numeric characters only) [SqlUserDefinedPatternCheck1]: | `NoDeleteWithoutWhere` |
 | Set the Severity to return a code of 0-4 when triggered. (options: 'INFO'=0, 'MINOR'=1, 'MAJOR'=2, 'CRITICAL'=3, 'BLOCKER'=4)? [INFO]: | `<Choose a value: 0, 1, 2, 3, 4>` |
-| Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?is)(?=.*\b(delete)\b)(?!.*\b(restrict)\b)(?!.*\bno\s+action\b)(?!.*\bset\s+null\b)(?!.*\b(where)\b).*` |
+| Set 'SEARCH_STRING' (options: a string, or a valid regular expression): | `(?i)\bdelete\b(?![^;]*(?:\bwhere\b|\brestrict\b|\bno\s+action\b|\bset\s+null\b))` |
 | Set 'MESSAGE' [A match for regular expression <SEARCH_STRING> was detected in Changeset <CHANGESET>.]: | `Error! All DELETE statements must have a WHERE clause.` |
 | Set 'STRIP_COMMENTS' (options: true, false) [true]: | `true` |
